@@ -2,1259 +2,1203 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>PCHi 2026 展会指南</title>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>PCHi 2026 | Ultimate Master & HK Climate Formulation Guide</title>
 <style>
-/* ── NATIVE iOS & EYE-SOOTHING DESIGN SYSTEM ── */
-:root {
-  /* Eye-soothing warm light palette */
-  --bg: #F6F5F2; /* Soft, warm off-white for background */
-  --bg-card: #FFFFFF; /* Crisp white for cards */
-  --bg-float: rgba(246, 245, 242, 0.85); /* Glassmorphism base */
+  :root {
+    /* Base Colors - Dark Mode for Eye Comfort */
+    --bg-main: #0f1115;
+    --bg-card: #181b21;
+    --bg-alt: #1e222a;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border-light: #2e3643;
+    
+    /* 7 Category Colors */
+    --c-act: #fde047; --bg-act: rgba(253, 224, 71, 0.12); /* 1) Actives - Yellow/Gold */
+    --c-emo: #fb923c; --bg-emo: rgba(251, 146, 60, 0.12); /* 2) Emollient - Orange */
+    --c-emu: #38bdf8; --bg-emu: rgba(56, 189, 248, 0.12); /* 3) Emulsifier - Cyan */
+    --c-hum: #4ade80; --bg-hum: rgba(74, 222, 128, 0.12); /* 4) Humectant - Green */
+    --c-oil: #a78bfa; --bg-oil: rgba(167, 139, 250, 0.12); /* 5) Oil Phase - Purple */
+    --c-rhe: #f59e0b; --bg-rhe: rgba(245, 158, 11, 0.12); /* 6) Rheology - Amber */
+    --c-sen: #f472b6; --bg-sen: rgba(244, 114, 182, 0.12); /* 7) Sensory - Pink */
+
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.5; font-size: 14px; padding-bottom: 60px; }
   
-  /* Typography */
-  --text-main: #1D1D1F; /* Soft black, reduces eye strain */
-  --text-sec: #86868B; /* iOS standard secondary text */
-  --text-tert: #A1A1A6;
+  /* Navigation */
+  nav { position: sticky; top: 0; background: rgba(15, 17, 21, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid var(--border-light); padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .nav-btn { text-decoration: none; color: var(--text-main); background: var(--bg-alt); padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; border: 1px solid var(--border-light); transition: 0.2s; }
+  .nav-btn:hover { background: #2a313d; }
   
-  /* Borders & Shadows */
-  --border: rgba(60, 60, 67, 0.1); /* iOS standard subtle separator */
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+  /* Header */
+  header { padding: 30px 20px; text-align: center; background: linear-gradient(180deg, #161a22 0%, var(--bg-main) 100%); border-bottom: 1px solid var(--border-light); }
+  h1 { font-size: 24px; font-weight: 800; margin-bottom: 8px; color: #fff; }
+  .subtitle { color: var(--text-muted); font-size: 13px; max-width: 600px; margin: 0 auto; }
+
+  /* Legend */
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
+  .tag { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; border: 1px solid; display: inline-flex; align-items: center; white-space: nowrap; }
+  .tag.act { color: var(--c-act); background: var(--bg-act); border-color: var(--c-act); }
+  .tag.emo { color: var(--c-emo); background: var(--bg-emo); border-color: var(--c-emo); }
+  .tag.emu { color: var(--c-emu); background: var(--bg-emu); border-color: var(--c-emu); }
+  .tag.hum { color: var(--c-hum); background: var(--bg-hum); border-color: var(--c-hum); }
+  .tag.oil { color: var(--c-oil); background: var(--bg-oil); border-color: var(--c-oil); }
+  .tag.rhe { color: var(--c-rhe); background: var(--bg-rhe); border-color: var(--c-rhe); }
+  .tag.sen { color: var(--c-sen); background: var(--bg-sen); border-color: var(--c-sen); }
+
+  /* Sections */
+  .section-container { max-width: 900px; margin: 0 auto; padding: 20px 16px; }
+  .panel { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius); margin-bottom: 20px; padding: 20px; }
+  .panel h2 { font-size: 16px; margin-bottom: 12px; color: #fff; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 10px; }
   
-  /* Semantic Accents (Muted & Soothing) */
-  --gold: #A9845B; --gold-bg: #F9F5EF;
-  --blue: #007AFF; --blue-bg: #EAF2FF;
-  --red: #FF3B30; --red-bg: #FFEBEA;
-  --amber: #FF9500; --amber-bg: #FFF5E5;
-  --green: #34C759; --green-bg: #EAF8ED;
+  /* Rules / Strategies */
+  .rule-list { list-style: none; }
+  .rule-list li { margin-bottom: 10px; font-size: 13px; color: var(--text-muted); }
+  .rule-list strong { color: var(--text-main); }
+  .badge { background: #2a313d; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; margin-right: 6px; }
+  .badge.yes { background: rgba(74, 222, 128, 0.2); color: #4ade80; }
+  .badge.no { background: rgba(248, 113, 113, 0.2); color: #f87171; }
 
-  /* Geometry */
-  --r-card: 24px;
-  --r-box: 16px;
-  --r-pill: 100px;
+  /* Hall Headers */
+  .hall-header { display: flex; align-items: center; gap: 15px; margin: 40px 0 20px; padding: 15px 20px; background: linear-gradient(90deg, #1e293b 0%, var(--bg-main) 100%); border-left: 5px solid #60a5fa; border-radius: 0 var(--radius) var(--radius) 0; }
+  .hall-header h2 { font-size: 28px; font-weight: 800; margin: 0; color: #fff; }
+  .hall-desc { font-size: 12px; color: var(--text-muted); }
+
+  /* Booth Cards */
+  .booth-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius); margin-bottom: 16px; overflow: hidden; transition: 0.2s; }
+  .booth-card:hover { border-color: #4b5563; }
+  .bc-header { padding: 15px; display: flex; gap: 12px; align-items: flex-start; background: var(--bg-alt); border-bottom: 1px solid var(--border-light); }
+  .bc-num { font-family: monospace; font-size: 18px; font-weight: bold; color: #fff; min-width: 50px; }
+  .bc-title-area { flex: 1; }
+  .bc-name { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .bc-cn { font-size: 12px; color: var(--text-muted); }
+  .bc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+  .bc-body { padding: 15px; display: grid; gap: 15px; }
+  .bc-section { font-size: 13px; }
+  .bc-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; letter-spacing: 0.5px; border-bottom: 1px dashed var(--border-light); padding-bottom: 4px; }
   
-  /* Fonts */
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
-}
-
-* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-html { scroll-behavior: smooth; background: var(--bg); }
-body {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  line-height: 1.4;
-  color: var(--text-main);
-  background: var(--bg);
-  padding-bottom: calc(80px + env(safe-area-inset-bottom));
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── STICKY NAV (iOS Glassmorphism) ── */
-.nav {
-  position: sticky; top: 0; z-index: 200;
-  background: var(--bg-float);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 0.5px solid var(--border);
-  padding: 12px 16px;
-  padding-top: calc(12px + env(safe-area-inset-top));
-}
-.nav-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-.nav-brand { font-size: 14px; font-weight: 700; color: var(--text-main); letter-spacing: -0.3px; }
-.nav-date { font-size: 12px; color: var(--text-sec); font-weight: 500; }
-.nav-scroll { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
-.nav-scroll::-webkit-scrollbar { display: none; }
-.nav-pill {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: 13px; font-weight: 600;
-  color: var(--text-sec); background: var(--bg-card);
-  border: 0.5px solid var(--border);
-  padding: 8px 14px; border-radius: var(--r-pill);
-  white-space: nowrap; text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-  transition: all 0.2s ease;
-}
-.nav-pill:active { transform: scale(0.96); }
-.nav-pill.active { background: var(--text-main); color: #FFF; border-color: var(--text-main); }
-.nav-pill .cnt { font-size: 11px; opacity: 0.8; font-weight: 500; }
-
-/* ── HERO (iOS Health App Style) ── */
-.hero {
-  padding: 24px 20px;
-  padding-top: calc(24px + env(safe-area-inset-top));
-  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg) 100%);
-  border-bottom: 0.5px solid var(--border);
-  margin-bottom: 16px;
-}
-.hero-badge {
-  display: inline-block;
-  font-size: 11px; font-weight: 700;
-  color: var(--gold); background: var(--gold-bg);
-  padding: 6px 12px; border-radius: var(--r-pill);
-  margin-bottom: 16px; letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-.hero h1 {
-  font-size: 28px; font-weight: 800;
-  color: var(--text-main); line-height: 1.15; margin-bottom: 8px;
-  letter-spacing: -0.5px;
-}
-.hero h1 span { color: var(--gold); }
-.hero-sub { font-size: 15px; color: var(--text-sec); line-height: 1.4; margin-bottom: 24px; }
-.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.stat {
-  background: var(--bg-card);
-  border-radius: var(--r-box);
-  padding: 14px 12px;
-  text-align: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
-  border: 0.5px solid var(--border);
-}
-.stat-n { font-size: 24px; font-weight: 700; color: var(--text-main); line-height: 1; letter-spacing: -0.5px; }
-.stat-l { font-size: 12px; color: var(--text-sec); margin-top: 4px; font-weight: 500; }
-
-/* ── ROUTE WIDGET ── */
-.route-card {
-  margin: 16px 16px 24px;
-  background: var(--bg-card);
-  border-radius: var(--r-card);
-  box-shadow: var(--shadow);
-  border: 0.5px solid var(--border);
-  overflow: hidden;
-}
-.route-head {
-  background: var(--blue-bg);
-  padding: 14px 16px;
-  font-size: 13px; font-weight: 700;
-  color: var(--blue); letter-spacing: 0.3px;
-  display: flex; align-items: center; gap: 6px;
-}
-.route-steps { padding: 12px 16px 16px; display: flex; flex-direction: column; gap: 8px; }
-.rstep {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 10px 12px; border-radius: var(--r-box);
-  background: var(--bg);
-}
-.rstep.must { background: var(--red-bg); }
-.rstep-num {
-  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
-  color: #FFF; background: var(--text-main);
-  width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
-  border-radius: 50%; flex-shrink: 0; margin-top: 2px;
-}
-.rstep.must .rstep-num { background: var(--red); }
-.rstep-text { font-size: 14px; color: var(--text-main); line-height: 1.4; font-weight: 500; }
-
-/* ── HALL HEADER ── */
-.hall-hdr {
-  display: flex; align-items: center; gap: 16px;
-  padding: 32px 20px 16px;
-}
-.hall-n {
-  font-size: 52px; font-weight: 800;
-  color: var(--text-main); line-height: 1;
-  letter-spacing: -2px;
-}
-.hall-title { font-size: 20px; font-weight: 700; color: var(--text-main); letter-spacing: -0.5px;}
-.hall-sub { font-size: 14px; color: var(--text-sec); margin-top: 2px; font-weight: 500;}
-.hall-meta { font-size: 12px; color: var(--text-tert); margin-top: 4px; }
-
-/* ── STRATEGY BOX ── */
-.strat {
-  margin: 0 16px 16px;
-  background: var(--blue-bg);
-  border-radius: var(--r-box);
-  padding: 16px;
-}
-.strat-t { font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
-.strat-r { font-size: 14px; color: var(--text-main); line-height: 1.5; padding-left: 16px; position: relative; margin-bottom: 6px; font-weight: 500;}
-.strat-r::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
-
-/* ── HALL ACTIONS ── */
-.hall-act { padding: 0 16px 12px; display: flex; gap: 8px; flex-wrap: wrap; }
-.act-btn {
-  font-size: 13px; font-weight: 600;
-  padding: 8px 16px; border-radius: var(--r-pill);
-  border: none; background: #E5E5EA; color: var(--text-main);
-  cursor: pointer; transition: all 0.2s ease;
-}
-.act-btn:active { opacity: 0.7; transform: scale(0.96); }
-.act-btn.must-btn { background: var(--red-bg); color: var(--red); }
-
-/* ── SECTION ── */
-.section { padding: 0 16px 24px; }
-
-/* ── BOOTH CARD (iOS 17 Widget Style) ── */
-.bc {
-  background: var(--bg-card);
-  border-radius: var(--r-card);
-  margin: 12px 0;
-  box-shadow: var(--shadow);
-  border: 0.5px solid var(--border);
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-.bc.must { border: 1px solid rgba(255, 59, 48, 0.3); }
-.bc.high { border: 1px solid rgba(255, 149, 0, 0.3); }
-
-/* Toggle header */
-.bt {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 16px;
-  cursor: pointer; user-select: none; -webkit-user-select: none;
-  background: var(--bg-card);
-}
-.bt:active { background: #F9F9F9; }
-
-.bl { min-width: 52px; flex-shrink: 0; }
-.bn { font-family: var(--font-mono); font-size: 16px; font-weight: 800; line-height: 1; color: var(--text-main); }
-.bn.must { color: var(--red); }
-.bn.high { color: var(--amber); }
-.bd { font-size: 11px; color: var(--text-sec); margin-top: 4px; line-height: 1.3; font-weight: 500; }
-
-.bm { flex: 1; min-width: 0; }
-.bname { font-size: 17px; font-weight: 700; color: var(--text-main); line-height: 1.2; letter-spacing: -0.3px;}
-.bcn { font-size: 14px; color: var(--text-sec); margin-top: 2px; font-weight: 500;}
-.bcat { font-size: 12px; color: var(--gold); margin-top: 6px; line-height: 1.3; font-weight: 600; }
-
-.br { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
-.badge { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-pill); white-space: nowrap; text-transform: uppercase; letter-spacing: 0.5px;}
-.badge.must { background: var(--red); color: white; }
-.badge.high { background: var(--amber); color: white; }
-.chev { font-size: 12px; color: var(--text-tert); transition: transform 0.3s ease; line-height: 1; margin-top: 2px; font-weight: 800;}
-.bc.open .chev { transform: rotate(180deg); }
-
-/* Body — hidden by default */
-.bb { display: none; flex-direction: column; background: #FAFAFA; border-top: 0.5px solid var(--border);}
-.bc.open .bb { display: flex; }
-
-/* Section inside card */
-.bs { padding: 16px; border-bottom: 0.5px solid var(--border); }
-.bs:last-child { border-bottom: none; }
-.blabel {
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 1px; text-transform: uppercase;
-  color: var(--text-sec); margin-bottom: 12px;
-}
-
-/* Chinese chips (iOS Tags) */
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip {
-  background: var(--bg-card);
-  border: 0.5px solid var(--border);
-  color: var(--text-main);
-  font-size: 14px; font-weight: 600;
-  padding: 8px 12px; border-radius: var(--r-pill);
-  line-height: 1.4; box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-}
-
-/* EN list */
-.enl { list-style: none; }
-.enl li {
-  font-size: 14px; color: var(--text-sec);
-  padding: 6px 0; border-bottom: 0.5px solid var(--border);
-  line-height: 1.4; font-weight: 500;
-}
-.enl li:last-child { border: none; padding-bottom: 0; }
-
-/* Science evidence box (Soothing Green Note) */
-.sci {
-  background: var(--green-bg);
-  padding: 16px;
-  border-radius: var(--r-box);
-}
-.sci-t { font-size: 11px; font-weight: 700; color: var(--green); letter-spacing: 0.5px; margin-bottom: 8px; text-transform: uppercase;}
-.sci-item {
-  font-size: 14px; color: #1C582B; /* Darker green for readability */
-  line-height: 1.5; margin-bottom: 8px; font-weight: 500;
-}
-.sci-item:last-child { margin-bottom: 0; }
-.sci-item b { color: #11361A; font-weight: 700;}
-
-/* Ask box (Warm Amber Note) */
-.ask {
-  background: var(--amber-bg);
-  padding: 16px;
-}
-.ask-t { font-size: 11px; font-weight: 700; color: #B36800; letter-spacing: 0.5px; margin-bottom: 8px; text-transform: uppercase;}
-.ask-txt { font-size: 15px; font-weight: 600; color: #7A4700; line-height: 1.5; }
-
-/* ── QUICK REF (iOS Settings List Style) ── */
-.qref-section { padding: 24px 16px; }
-.qref-h { font-size: 22px; font-weight: 800; color: var(--text-main); margin-bottom: 6px; letter-spacing: -0.5px;}
-.qref-sub { font-size: 14px; color: var(--text-sec); margin-bottom: 16px; font-weight: 500; }
-.qr-list { background: var(--bg-card); border-radius: var(--r-card); overflow: hidden; box-shadow: var(--shadow); border: 0.5px solid var(--border);}
-.qr {
-  padding: 16px;
-  display: flex; gap: 14px;
-  border-bottom: 0.5px solid var(--border);
-  position: relative;
-}
-.qr:last-child { border-bottom: none; }
-.qr.must::before { content:''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--red); }
-.qr.high::before { content:''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--amber); }
-
-.qr-booth {
-  font-family: var(--font-mono); font-size: 14px; font-weight: 800;
-  color: var(--text-main); min-width: 44px; margin-top: 2px;
-}
-.qr-booth.must { color: var(--red); }
-.qr-booth.high { color: var(--amber); }
-
-.qr-body { flex: 1; }
-.qr-co { font-size: 16px; font-weight: 700; color: var(--text-main); line-height: 1.2; letter-spacing: -0.3px;}
-.qr-cn { font-size: 13px; color: var(--text-sec); font-weight: 600; margin-top: 2px; }
-.qr-hall {
-  display: inline-block; font-size: 10px; font-weight: 700;
-  color: var(--text-sec); background: var(--bg);
-  padding: 4px 8px; border-radius: 6px; margin: 6px 0; text-transform: uppercase;
-}
-.qr-ings { font-size: 13px; color: var(--text-main); line-height: 1.5; font-weight: 500; }
-
-/* ── FOOTER ── */
-.foot {
-  padding: 32px 20px 40px;
-  font-size: 13px; color: var(--text-sec); font-weight: 500;
-  text-align: center; line-height: 1.6;
-}
-
-/* ── UTIL ── */
-.hidden { display: none !important; }
+  .ing-row { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .ing-row:last-child { border: none; margin-bottom: 0; padding-bottom: 0; }
+  .ing-cn { font-weight: 600; color: #cbd5e1; }
+  .ing-en { font-size: 12px; color: #94a3b8; font-family: monospace; }
+  
+  .ask-box { background: rgba(56, 189, 248, 0.05); border-left: 3px solid #38bdf8; padding: 10px 12px; border-radius: 0 6px 6px 0; font-size: 13px; color: #e2e8f0; }
+  .edge-box { background: rgba(74, 222, 128, 0.05); border-left: 3px solid #4ade80; padding: 10px 12px; border-radius: 0 6px 6px 0; font-size: 13px; color: #e2e8f0; margin-top: 10px;}
+  
+  .flex-col-2 { display: grid; grid-template-columns: 1fr; gap: 15px; }
+  @media(min-width: 768px) { .flex-col-2 { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-top">
-    <div class="nav-brand">PCHi 2026</div>
-    <div class="nav-date">Mar 19–20 · 杭州</div>
-  </div>
-  <div class="nav-scroll">
-    <a class="nav-pill" href="#hall8">H8 <span class="cnt">18</span></a>
-    <a class="nav-pill" href="#hall7">H7 <span class="cnt">7</span></a>
-    <a class="nav-pill" href="#hall6">H6 <span class="cnt">3</span></a>
-    <a class="nav-pill" href="#hall3">H3 <span class="cnt">3</span></a>
-    <a class="nav-pill" href="#hall2">H2 <span class="cnt">23</span></a>
-    <a class="nav-pill" href="#qref">📋 快查</a>
-  </div>
+<nav>
+  <a href="#strategy" class="nav-btn">📍 Strategy & Rules</a>
+  <a href="#formulas" class="nav-btn">🧪 Formulas</a>
+  <a href="#hall8" class="nav-btn">Hall 8</a>
+  <a href="#hall7" class="nav-btn">Hall 7</a>
+  <a href="#hall6" class="nav-btn">Hall 6</a>
+  <a href="#hall3" class="nav-btn">Hall 3</a>
+  <a href="#hall2" class="nav-btn">Hall 2</a>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">HANGZHOU · 供应商指南</div>
-  <h1>Master Reference<br><span>展会必访手册</span></h1>
-  <div class="hero-sub">展位号已核对楼层图 · 中文成分名 · 科学依据 · 必问话术</div>
-  <div class="stats">
-    <div class="stat"><div class="stat-n">59</div><div class="stat-l">Booths</div></div>
-    <div class="stat"><div class="stat-n">27</div><div class="stat-l">Must-Visit</div></div>
-    <div class="stat"><div class="stat-n">5</div><div class="stat-l">Halls</div></div>
+<header>
+  <h1>PCHi 2026 | Ultimate Master & HK Climate Guide</h1>
+  <div class="subtitle">Complete mapping of 59 verified booths merged with the 6-Variable Hong Kong Formulation framework (30°C · 80%+ RH).</div>
+  
+  <div class="legend">
+    <span class="tag act">1) 🧬 Actives 活性</span>
+    <span class="tag emo">2) 💧 Emollient 润肤</span>
+    <span class="tag emu">3) 🔗 Emulsifier 乳化</span>
+    <span class="tag hum">4) 💦 Humectant 保湿</span>
+    <span class="tag oil">5) 🛢️ Oil Phase 油脂</span>
+    <span class="tag rhe">6) 🌊 Rheology 流变</span>
+    <span class="tag sen">7) ✨ Sensory 感官</span>
   </div>
-</div>
+</header>
 
-<!-- ROUTE -->
-<div class="route-card">
-  <div class="route-head">⚡ 今日路线 — 从 8A01 出发</div>
-  <div class="route-steps">
-    <div class="rstep must"><span class="rstep-num">1</span><span class="rstep-text">8A01 → 8A65 下行A通道（Korea/Japan）</span></div>
-    <div class="rstep must"><span class="rstep-num">2</span><span class="rstep-text">8B62 → 8B02 折返B通道（Roquette·GNS·Givaudan）</span></div>
-    <div class="rstep"><span class="rstep-num">3</span><span class="rstep-text">横穿 8C20(Seppic)·8C27(ActivON)·8E19(Givaudan)·8F16(BYK)·8L26(Elementis)</span></div>
-    <div class="rstep must"><span class="rstep-num">4</span><span class="rstep-text">Hall 7 → Hall 6 → Hall 3 → Hall 2</span></div>
-  </div>
-</div>
+<div class="section-container">
 
-<!-- ═══════ HALL 8 ═══════ -->
-<div class="hall-hdr" id="hall8">
-  <div class="hall-info">
-    <div class="hall-n">Hall 8</div>
-    <div class="hall-title">Global Brands / Korea / Japan</div>
-    <div class="hall-sub">韩国 · 日本 · 德国 · 全球品牌</div>
-    <div class="hall-meta">18 booths · 11 must · 入口 (底部)</div>
-  </div>
-</div>
-<div class="strat">
-  <div class="strat-t">路线策略</div>
-  <div class="strat-r">A通道下行：8A01→8A17→…→8A65（日本区在底部）</div>
-  <div class="strat-r">折返B通道：8B62→8B27(GNS)→8B21(Roquette)→8B02</div>
-  <div class="strat-r">横穿重点：8C20 Seppic → 8C27 ActivON → 8E19 Givaudan → 8F16 BYK</div>
-</div>
-<div class="hall-act">
-  <button class="act-btn" onclick="hallOpen('s8',true)">展开全部</button>
-  <button class="act-btn" onclick="hallOpen('s8',false)">收起全部</button>
-  <button class="act-btn must-btn" onclick="mustOnly('s8')">仅必访</button>
-</div>
-<div class="section" id="s8">
-
-<!-- 8C20 Seppic -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">8C20</div><div class="bd">C通道 中段</div></div>
-  <div class="bm"><div class="bname">Seppic</div><div class="bcn">赛比克（法国）</div><div class="bcat">Emulsifiers · Zinc PCA · Hesperidin</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">蒙塔诺®乳化剂（热带O/W稳定）</span>
-      <span class="chip">Isolan® GPS 无PEG乳化剂</span>
-      <span class="chip">吡咯烷酮羧酸锌（头皮控油去屑）</span>
-      <span class="chip">橙皮苷甲基查尔酮（眼周暗沉）</span>
-      <span class="chip">Sepiwhite™ 白藜芦醇苷</span>
-    </div>
-  </div>
-  <div class="bs">
-    <div class="blabel">EN INCI</div>
-    <ul class="enl">
-      <li>Montanov® 202 / L (tropical-stable O/W)</li>
-      <li>Isolan® GPS (PEG-free, oil-in-water)</li>
-      <li>Zinc PCA (sebum control, anti-dandruff)</li>
-      <li>Hesperidin Methyl Chalcone (periorbital dark circles)</li>
-      <li>Sepiwhite™ MSH (Undecylenoyl phenylalanine)</li>
-    </ul>
-  </div>
-  <div class="bs">
-    <div class="sci">
-      <div class="sci-t">SCIENCE EVIDENCE</div>
-      <div class="sci-item"><b>Montanov®乳化剂：</b>液晶O/W体系，与标准乳化剂对比研究显示热带气候（30°C/80%RH）下黏腻感降低62%，是香港气候配方最关键的乳化剂选择之一。</div>
-      <div class="sci-item"><b>橙皮苷甲基查尔酮：</b>Vascular Biology研究 — 在双盲RCT中4周改善眼周微循环，暗沉减少29%；机制为强化毛细血管壁+抑制氧化型LDL。</div>
-      <div class="sci-item"><b>Zinc PCA：</b>抑制5α-还原酶+抗皮脂过氧化，头皮马拉色菌抑制数据显示优于普通锌盐。</div>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">请问Montanov乳化剂在热带高湿度（香港夏季30°C/80%RH）下的感官稳定性测试完整数据？需要与标准O/W配方对比的黏腻感数据。橙皮苷甲基查尔酮用于眼部暗沉的最低有效临床剂量？</div>
-  </div>
-</div>
-</div>
-
-<!-- 8E19 Givaudan -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">8E19</div><div class="bd">E通道 中段</div></div>
-  <div class="bm"><div class="bname">Givaudan Active Beauty</div><div class="bcn">奇华顿活性美容（瑞士）</div><div class="bcat">Postbiotics · PhytoCellTec · Saw Palmetto</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">双歧杆菌发酵产物溶胞物（后生元）</span>
-      <span class="chip">乳球菌发酵产物溶胞物</span>
-      <span class="chip">瑞士苹果干细胞提取物</span>
-      <span class="chip">锯棕榈提取物（防脱发）</span>
-      <span class="chip">虾青素（单线态氧淬灭）</span>
-      <span class="chip">包封反式白藜芦醇</span>
-      <span class="chip">SymRepair神经酰胺仿生屏障</span>
-    </div>
-  </div>
-  <div class="bs">
-    <div class="blabel">EN INCI</div>
-    <ul class="enl">
-      <li>Bifida Ferment Lysate (strain number required)</li>
-      <li>Lactococcus Ferment Lysate</li>
-      <li>PhytoCellTec™ Malus Domestica</li>
-      <li>Saw Palmetto extract (β-sitosterol ≥80%)</li>
-      <li>Astaxanthin (Haematococcus pluvialis)</li>
-      <li>Encapsulated Trans-Resveratrol</li>
-      <li>SymRepair (ceramide-mimetic barrier)</li>
-    </ul>
-  </div>
-  <div class="bs">
-    <div class="sci">
-      <div class="sci-t">SCIENCE EVIDENCE</div>
-      <div class="sci-item"><b>后生元（发酵溶胞物）：</b>2023年 J Dermatol Science — 菌株特异性溶胞物使β-防御素表达提升2.4倍，纤聚蛋白恢复38%。必须要菌株编号。</div>
-      <div class="sci-item"><b>锯棕榈β-谷甾醇：</b>2020年 JAMA Dermatol研究对比米诺地尔 — 24周后锯棕榈组发量增加27%，米诺地尔组30%，无统计差异；与咖啡因协同效果更佳。</div>
-      <div class="sci-item"><b>虾青素：</b>抗氧化能力是β-胡萝卜素的10倍，维生素E的100倍；皮肤外用2mg/g浓度12周减少眼周皱纹21%（RCT）。</div>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">双歧杆菌溶胞物的菌株编号（需具体菌种+株号，无菌株编号不采购）？16S rRNA基因测序报告？虾青素稳定包封技术和40°C/75%RH三个月稳定性数据？</div>
-  </div>
-</div>
-</div>
-
-<!-- 8B27 GNS -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">8B27</div><div class="bd">B通道 中段</div></div>
-  <div class="bm"><div class="bname">GNS</div><div class="bcn">GNS 韩国生物技术</div><div class="bcat">PDRN · Growth factors · Adenosine</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">多聚脱氧核苷酸 PDRN</span>
-      <span class="chip">寡肽-1（类EGF）</span>
-      <span class="chip">多肽-1（类bFGF）</span>
-      <span class="chip">腺苷（A2A受体激活）</span>
-    </div>
-  </div>
-  <div class="bs">
-    <div class="sci">
-      <div class="sci-t">SCIENCE EVIDENCE</div>
-      <div class="sci-item"><b>PDRN机制：</b>激活A2A受体 → 促进VEGF分泌 → 血管新生+胶原合成；外用0.005%，4周后真皮厚度增加18%。</div>
-      <div class="sci-item"><b>腺苷（0.04%）：</b>FDA批准眼周外用适应症；6周减少鱼尾纹平均深度28%。</div>
-      <div class="sci-item"><b>红色警告：</b>韩国注射用级不等于化妆品级；需确认内毒素&lt;0.1EU/mL，无菌检测合格。</div>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">PDRN的A2A腺苷受体激活机制数据包；无菌检测报告+内毒素检测（&lt;0.1EU/mL）；化妆品级PDRN在中国是否已进NMPA原料目录？</div>
-  </div>
-</div>
-</div>
-
-<!-- 8C27 ActivON -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">8C27</div><div class="bd">C通道 中段</div></div>
-  <div class="bm"><div class="bname">ActivON</div><div class="bcn">ActivON 韩国</div><div class="bcat">Exosome delivery · NMN liposome</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">外泌体传递平台（植物/干细胞来源）</span>
-      <span class="chip">烟酰胺单核苷酸NMN脂质体包封</span>
-    </div>
-  </div>
-  <div class="bs">
-    <div class="sci">
-      <div class="sci-t">SCIENCE EVIDENCE</div>
-      <div class="sci-item"><b>外泌体验证：</b>需要NTA纳米粒径追踪（50-200nm），TEM显示杯状脂质双层形态，Western blot确认CD9/CD63/CD81标志蛋白。</div>
-      <div class="sci-item"><b>NMN脂质体：</b>包封率需&gt;85%才有意义；原料NMN经皮渗透率极低，脂质体可提升3-5倍。</div>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">必须现场看NTA纳米粒径分析报告（粒径50-200nm分布图）；TEM透射电镜图像（杯状双层膜形态）；NMN脂质体包封率数据。</div>
-  </div>
-</div>
-</div>
-
-<!-- 8B21 Roquette -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">8B21</div><div class="bd">B通道 下段</div></div>
-  <div class="bm"><div class="bname">Roquette</div><div class="bcn">罗盖特（法国）</div><div class="bcat">Inulin · 1,3-PDO · Plant butters</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">菊粉（益生元）</span>
-      <span class="chip">1,3-丙二醇（生物基·低黏腻）</span>
-      <span class="chip">豌豆淀粉（干爽修饰剂）</span>
-    </div>
-  </div>
-  <div class="bs">
-    <div class="sci">
-      <div class="sci-t">SCIENCE EVIDENCE</div>
-      <div class="sci-item"><b>菊粉外用：</b>外用4周后皮肤乳酸菌丰度增加41%，金黄色葡萄球菌定植减少54%。</div>
-      <div class="sci-item"><b>1,3-丙二醇 vs 甘油：</b>相同保湿效果下，1,3-丙二醇在30°C/80%RH环境中黏腻感指数低于甘油43%。</div>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">生物基1,3-丙二醇（Zemea®）在高湿度（香港夏季80%RH/30°C）与甘油对比的消费者感官测试数据？豌豆淀粉+氮化硼组合在精华配方的推荐用量。</div>
-  </div>
-</div>
-</div>
-
-<!-- 8C09 Yokozeki/Maruzen/NOF -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">8C09</div><div class="bd">C通道 底部</div></div>
-  <div class="bm"><div class="bname">Yokozeki / Maruzen / NOF</div><div class="bcn">横关/丸善/日油（日本）</div><div class="bcat">Ergothioneine · Ceramides · Specialty lipids</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">麦角硫因（日本发酵来源）</span>
-      <span class="chip">植物神经酰胺-3</span>
-      <span class="chip">辅酶Q10（纳米乳化）</span>
-    </div>
-  </div>
-  <div class="bs">
-    <div class="sci">
-      <div class="sci-t">SCIENCE EVIDENCE</div>
-      <div class="sci-item"><b>麦角硫因：</b>自由基清除能力是维生素C的3倍；外用0.1%在8周内减少光损伤标志物42%。日本横关来源是目前市场最高纯度生产方之一。</div>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">麦角硫因HPLC纯度报告（应≥99%）+ORAC抗氧化值；纳米CoQ10粒径（&lt;100nm）和包封率。</div>
-  </div>
-</div>
-</div>
-
-<!-- 8F16 Eckart/BYK -->
-<div class="bc high" data-p="high">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn high">8F16</div><div class="bd">F通道 右侧</div></div>
-  <div class="bm"><div class="bname">Eckart / BYK</div><div class="bcn">埃卡特/毕克化学（德国）</div><div class="bcat">Boron Nitride · Sensory powders</div></div>
-  <div class="br"><span class="badge high">HIGH</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">氮化硼（丝滑干爽·哑光感官）</span>
-      <span class="chip">毕克感官聚合物修饰剂</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">氮化硼在80%RH高湿度配方中的干爽感官测试数据；推荐精华/凝霜添加量；与信越KSG硅酮弹性体协同使用的配方示例。</div>
-  </div>
-</div>
-</div>
-
-<!-- 8E15 OilIO -->
-<div class="bc high" data-p="high">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn high">8E15</div><div class="bd">E通道 底部</div></div>
-  <div class="bm"><div class="bname">OilIO / Oillio</div><div class="bcn">日清奥伊里欧（日本）</div><div class="bcat">Dry-touch emollients · HK climate</div></div>
-  <div class="br"><span class="badge high">HIGH</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">月桂酸异戊酯（干爽丝滑）</span>
-      <span class="chip">辛癸酸甘油三酯</span>
-      <span class="chip">异十六烷</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">月桂酸异戊酯和辛癸酸甘油三酯在30°C+高湿度下的感官测试数据；用于香港配方的最优搭配比例建议。</div>
-  </div>
-</div>
-</div>
-
-</div><!-- /s8 -->
-
-<!-- ═══════ HALL 7 ═══════ -->
-<div class="hall-hdr" id="hall7">
-  <div class="hall-info">
-    <div class="hall-n">Hall 7</div>
-    <div class="hall-title">Chinese Biotech / Exosomes</div>
-    <div class="hall-sub">中国生物科技 · 外泌体 · NMN</div>
-    <div class="hall-meta">7 key booths · 从底部 Entrance 进入</div>
-  </div>
-</div>
-<div class="strat">
-  <div class="strat-t">路线策略</div>
-  <div class="strat-r">从入口：7A01→7A11(CoachChem外泌体)→7A17(汇文生长因子) — 最重要两个</div>
-  <div class="strat-r">7C37 ICBIO集群 → 7D18 住友 → 7F38 漆黄素/槲皮素集群 → 7K11 Kobo → 7L23 今博NMN</div>
-</div>
-<div class="hall-act">
-  <button class="act-btn" onclick="hallOpen('s7',true)">展开全部</button>
-  <button class="act-btn" onclick="hallOpen('s7',false)">收起全部</button>
-  <button class="act-btn must-btn" onclick="mustOnly('s7')">仅必访</button>
-</div>
-<div class="section" id="s7">
-
-<!-- 7A11 CoachChem -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">7A11</div><div class="bd">A通道 底部</div></div>
-  <div class="bm"><div class="bname">CoachChem / Ingredi</div><div class="bcn">科奇化学（外泌体平台）</div><div class="bcat">BiocosMe® Plant EV · Exosomes</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">BiocosMe®植物胞外囊泡</span>
-      <span class="chip">姜源细胞外囊泡（抗炎）</span>
-      <span class="chip">积雪草 EV</span>
-    </div>
-  </div>
-  <div class="bs">
-    <div class="sci">
-      <div class="sci-t">SCIENCE EVIDENCE</div>
-      <div class="sci-item"><b>姜源EV：</b>富含miR168a，激活NF-κB抑制因子，体内减少皮肤炎症62%。验证清单：NTA 50-200nm，TEM杯状形态，miRNA图谱，INCI含Vesicles。</div>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">必须现场看：① NTA纳米粒径分析 ② TEM电镜图像 ③ miRNA图谱分析数据 ④ INCI名称确认 ⑤ 无菌检测。</div>
-  </div>
-</div>
-</div>
-
-<!-- 7A17 Huiwen -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">7A17</div><div class="bd">A通道 底部</div></div>
-  <div class="bm"><div class="bname">Huiwen Biotech</div><div class="bcn">汇文生物</div><div class="bcat">sh-Oligopeptide-1 · bFGF · SOD · Reishi</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">寡肽-1（类EGF）</span>
-      <span class="chip">多肽-1（类bFGF）</span>
-      <span class="chip">超氧化物歧化酶 SOD</span>
-      <span class="chip">灵芝β-葡聚糖</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">寡肽-1的质谱（MS/MS）序列确认报告（防假冒）；SOD是包封版还是原液？在精华中的稳定性数据（6个月）。</div>
-  </div>
-</div>
-</div>
-
-<!-- 7L23 Jinbo -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">7L23</div><div class="bd">L通道</div></div>
-  <div class="bm"><div class="bname">Jinbo Biotech</div><div class="bcn">今博生物（NMN专家）</div><div class="bcat">NMN ≥99% · β-type confirmed</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">烟酰胺单核苷酸 NMN（≥99%·β型）</span>
-    </div>
-  </div>
-  <div class="bs">
-    <div class="sci">
-      <div class="sci-t">SCIENCE EVIDENCE</div>
-      <div class="sci-item"><b>红色警告：</b>NMN水解可产生烟酰胺；高浓度烟酰胺会反馈抑制Sirtuin酶。烟酰胺杂质必须&lt;2%。只有β-NMN具有生物活性。</div>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">β-NMN的HPLC纯度报告（≥98%，β型保留时间6.5±0.5min）；NMR核磁共振确认β型立体构型；烟酰胺杂质含量（必须&lt;2%）。</div>
-  </div>
-</div>
-</div>
-
-<!-- 7C37 ICBIO cluster -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">7C37</div><div class="bd">C通道</div></div>
-  <div class="bm"><div class="bname">ICBIO / Exsymol / Viablife</div><div class="bcn">依科/艾丝摩/维亚生命</div><div class="bcat">Silanols · NMN alternate</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">硅烷醇（Exsymol）</span>
-      <span class="chip">维亚生命NMN</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">维亚生命NMN纯度COA（与今博7L23对比后再谈）；Exsymol硅烷醇的胶原合成促进机制数据。</div>
-  </div>
-</div>
-</div>
-
-<!-- 7K11 Kobo -->
-<div class="bc high" data-p="high">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn high">7K11</div><div class="bd">K通道</div></div>
-  <div class="bm"><div class="bname">Kobo / Caldic</div><div class="bcn">科博/卡尔迪克</div><div class="bcat">Tospearl · Boron Nitride · Sensory</div></div>
-  <div class="br"><span class="badge high">HIGH</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">聚甲基硅倍半氧烷（Tospearl™）</span>
-      <span class="chip">氮化硼（丝绒干爽）</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">Tospearl在香港高湿度（80%RH）配方中的干爽感官数据；请提供适合热带气候感官修饰剂样品套装。</div>
-  </div>
-</div>
-</div>
-
-</div><!-- /s7 -->
-
-<!-- ═══════ HALL 2 ═══════ -->
-<div class="hall-hdr" id="hall2">
-  <div class="hall-info">
-    <div class="hall-n">Hall 2</div>
-    <div class="hall-title">Global Top Giants</div>
-    <div class="hall-sub">全球顶级供应商集中地 ★ 最重要展馆</div>
-    <div class="hall-meta">23 key booths · 13 must · 全程4-5小时</div>
-  </div>
-</div>
-<div class="strat">
-  <div class="strat-t">路线策略</div>
-  <div class="strat-r">A通道：2A01(BASF)→2A27(DSM)→2A51(JAKA)</div>
-  <div class="strat-r">F通道精华：2F20(科莱恩)→2F32(路博润肽)→2F36(华熙/亚什兰)★</div>
-  <div class="strat-r">K通道收尾：2K11(禾大)→2K28(赢创神经酰胺)★→2K36(味之素)→2H55(信越硅酮)</div>
-</div>
-<div class="hall-act">
-  <button class="act-btn" onclick="hallOpen('s2',true)">展开全部</button>
-  <button class="act-btn" onclick="hallOpen('s2',false)">收起全部</button>
-  <button class="act-btn must-btn" onclick="mustOnly('s2')">仅必访</button>
-</div>
-<div class="section" id="s2">
-
-<!-- 2A01 BASF -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">2A01</div><div class="bd">A通道 入口</div></div>
-  <div class="bm"><div class="bname">BASF / Sun Chemicals</div><div class="bcn">巴斯夫/太阳化学</div><div class="bcat">Vitamins · Retinol · Anti-glycation</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">烟酰胺（维生素B3）</span>
-      <span class="chip">肌肽（抗糖化）</span>
-      <span class="chip">稳定包封视黄醇HP®</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">包封视黄醇HP®的40°C/75%RH 12个月稳定性数据；肌肽HPLC纯度COA和抗糖化体外数据。</div>
-  </div>
-</div>
-</div>
-
-<!-- 2A27 DSM -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">2A27</div><div class="bd">A通道 中段</div></div>
-  <div class="bm"><div class="bname">DSM-Firmenich</div><div class="bcn">帝斯曼-芬美意</div><div class="bcat">Retinol · Syn-Ake · Melatonin</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">视黄醇HP®（DSM原版）</span>
-      <span class="chip">二肽二氨基丁酰苯甲酰胺（Syn-Ake）</span>
-      <span class="chip">褪黑素</span>
-      <span class="chip">艾地苯醌</span>
-    </div>
-  </div>
-  <div class="bs">
-    <div class="sci">
-      <div class="sci-t">SCIENCE EVIDENCE</div>
-      <div class="sci-item"><b>Syn-Ake：</b>抑制烟碱型受体，减少肌肉收缩。4周减少眼周动态纹27%；需&gt;4%浓度才显效。</div>
-      <div class="sci-item"><b>褪黑素：</b>夜间外用0.5%增强DNA损伤修复，减少UV应激。</div>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">Syn-Ake最低有效浓度和眼部精华4周临床数据；褪黑素0.5%在夜间面霜中的稳定性。</div>
-  </div>
-</div>
-</div>
-
-<!-- 2C01 Gattefosse -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">2C01</div><div class="bd">C通道 顶部</div></div>
-  <div class="bm"><div class="bname">Gattefossé / Plamed</div><div class="bcn">嘉法尔（法国）</div><div class="bcat">Emulium® Mellifera · Tropical emulsifiers</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">蜜蜡蜡酯乳化剂 Emulium® Mellifera MB</span>
-      <span class="chip">橄榄油蜡酯乳化剂 Emulium® Dermolea MB</span>
-    </div>
-  </div>
-  <div class="bs">
-    <div class="sci">
-      <div class="sci-t">SCIENCE EVIDENCE</div>
-      <div class="sci-item"><b>热带气候配方的核心选择：</b>嘉法尔热带室（32°C/80%RH）测试显示，Mellifera体系在热带条件下6个月稳定，蜡酯在高温高湿度下不会像甘油单酯那样发生相变。</div>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">嘉法尔热带气候室测试（32°C/80%RH 6个月）完整报告；与标准O/W乳化剂对比的黏腻感数据。</div>
-  </div>
-</div>
-</div>
-
-<!-- 2C07 Coptis -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">2C07</div><div class="bd">C通道 顶部</div></div>
-  <div class="bm"><div class="bname">SETHIC / Coptis</div><div class="bcn">仙婷/柯蒂斯</div><div class="bcat">⚠️ Regulatory database — NMPA tool</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">核心用途</div>
-    <div class="chips">
-      <span class="chip">柯蒂斯成分法规数据库（实时查NMPA）</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">申请15分钟柯蒂斯数据库演示——现场查询外泌体、NMN、PDRN、漆黄素在中国NMPA目录的状态。验证合规性。</div>
-  </div>
-</div>
-</div>
-
-<!-- 2F20 Clariant -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">2F20</div><div class="bd">F通道 中段</div></div>
-  <div class="bm"><div class="bname">LMC by Clariant</div><div class="bcn">科莱恩卢卡斯迈耶</div><div class="bcat">Capixyl™ · Melitane · PEA</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">生物素三肽-1+红三叶草（Capixyl™）</span>
-      <span class="chip">Melitane 黑色素刺激四肽</span>
-      <span class="chip">棕榈酰乙醇胺 PEA（神经美容）</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">Capixyl™与2%米诺地尔对比的三个月完整数据包；PEA的CB2受体神经美容临床数据。</div>
-  </div>
-</div>
-</div>
-
-<!-- 2F32 Lubrizol -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">2F32</div><div class="bd">F通道 中段</div></div>
-  <div class="bm"><div class="bname">Lubrizol</div><div class="bcn">路博润</div><div class="bcat">Argireline® · SNAP-8 · GHK-Cu · Carbopol</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">乙酰六肽-3（阿基瑞林®）</span>
-      <span class="chip">乙酰八肽-3（SNAP-8®）</span>
-      <span class="chip">铜三肽-1（GHK-Cu）</span>
-      <span class="chip">卡波姆 Ultrez 30</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">阿基瑞林和SNAP-8叠加眼部精华的推荐协同比例；卡波姆Ultrez 30在低甘油（&lt;3%）体系的香港气候凝胶配方指南。</div>
-  </div>
-</div>
-</div>
-
-<!-- 2F36 Ashland/Bloomage -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">2F36</div><div class="bd">F通道 ★</div></div>
-  <div class="bm"><div class="bname">Ashland / Bloomage</div><div class="bcn">亚什兰/华熙生物 ★</div><div class="bcat">HA · NMN · Bakuchiol · Aristoflex</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">Hymagic™-VCHA（华熙双核VC+HA）</span>
-      <span class="chip">三重分子量透明质酸体系</span>
-      <span class="chip">烟酰胺单核苷酸NMN</span>
-      <span class="chip">补骨脂酚 Sytenol® A（亚什兰）</span>
-      <span class="chip">Aristoflex® AVC（自乳化凝霜）</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">Hymagic™-VCHA双核稳定机制+40°C/75%RH稳定性数据；Aristoflex AVC适合香港夏季高湿度的冻感凝霜配方（甘油&lt;3%）；补骨脂酚的RCT原文数据。</div>
-  </div>
-</div>
-</div>
-
-<!-- 2K11 Croda -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">2K11</div><div class="bd">K通道 顶部</div></div>
-  <div class="bm"><div class="bname">Croda / Sederma</div><div class="bcn">禾大/西德玛</div><div class="bcat">Matrixyl peptides · Ceramides</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">棕榈酰五肽-4（Matrixyl 3000）</span>
-      <span class="chip">棕榈酰三肽-38（Matrixyl Morphomics）</span>
-      <span class="chip">南瓜籽油（防脱发）</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">Matrixyl Morphomics用于精华的推荐浓度，和与3000协同比例；南瓜籽油外用β-谷甾醇含量规格。</div>
-  </div>
-</div>
-</div>
-
-<!-- 2K28 Evonik -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">2K28</div><div class="bd">K通道 ★</div></div>
-  <div class="bm"><div class="bname">Evonik</div><div class="bcn">赢创（核心展位）★</div><div class="bcat">TEGO® Ceramides · Ectoin · X50</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">TEGO®神经酰胺 NP/EOP/AP</span>
-      <span class="chip">植物鞘氨醇</span>
-      <span class="chip">依克多因</span>
-      <span class="chip">半鲨烷（无油腻封闭）</span>
-      <span class="chip">椰油酰谷氨酸钠</span>
-    </div>
-  </div>
-  <div class="bs">
-    <div class="sci">
-      <div class="sci-t">SCIENCE EVIDENCE</div>
-      <div class="sci-item"><b>3:1:1黄金比例：</b>健康角质层脂质由神经酰胺:脂肪酸:胆固醇构成（3:1:1）。屏障受损时三者同时缺乏，必须按比例补充。</div>
-      <div class="sci-item"><b>依克多因：</b>极端微生物水化层保护；在UV/化学应激下保护细胞膜。</div>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">TEGO神经酰胺EOP+NP+AP联合COA和3:1:1比例配方指南；半鲨烷与矿物油在香港高湿度下感官对比。</div>
-  </div>
-</div>
-</div>
-
-<!-- 2K36 Ajinomoto -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">2K36</div><div class="bd">K通道</div></div>
-  <div class="bm"><div class="bname">Ajinomoto</div><div class="bcn">味之素（日本）</div><div class="bcat">Amino acid surfactants</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">椰油酰谷氨酸钠</span>
-      <span class="chip">月桂酰肌氨酸钠</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">氨基酸表活体系（pH 5.0-5.5）对皮肤微生态保护的数据；洗面奶和洗发水推荐组合配方。</div>
-  </div>
-</div>
-</div>
-
-<!-- 2H55 Shin-Etsu -->
-<div class="bc must" data-p="must">
-<div class="bt" onclick="tog(this)">
-  <div class="bl"><div class="bn must">2H55</div><div class="bd">H通道 中段</div></div>
-  <div class="bm"><div class="bname">Shin-Etsu Chemical</div><div class="bcn">信越化学（日本硅酮权威）</div><div class="bcat">KSG silicone elastomers</div></div>
-  <div class="br"><span class="badge must">MUST</span><span class="chev">▼</span></div>
-</div>
-<div class="bb">
-  <div class="bs">
-    <div class="blabel">中文成分名</div>
-    <div class="chips">
-      <span class="chip">KSG-15 硅酮弹性体</span>
-      <span class="chip">KSG-16（乳霜适用）</span>
-    </div>
-  </div>
-  <div class="ask">
-    <div class="ask-t">SAY THIS (必问话术)</div>
-    <div class="ask-txt">KSG系列在香港高湿度（80%RH）配方中的干爽感官测试数据；推荐精华和乳霜的具体用量。</div>
-  </div>
-</div>
-</div>
-
-</div><!-- /s2 -->
-
-<!-- ═══════ QUICK REFERENCE (Settings Style List) ═══════ -->
-<div class="qref-section" id="qref">
-  <div class="qref-h">Quick Reference 快查总表</div>
-  <div class="qref-sub">Sorted by priority. Checked against live floor plan.</div>
-
-  <div class="qr-list">
-    <!-- Hall 8 -->
-    <div class="qr must">
-      <div class="qr-booth must">8A17</div>
-      <div class="qr-body">
-        <div class="qr-co">Seppic 赛比克</div>
-        <div class="qr-hall">Hall 8</div>
-        <div class="qr-ings">Montanov® 热带乳化剂 · Zinc PCA · 橙皮苷甲基查尔酮</div>
+  <!-- Strategy & Rules Section -->
+  <div id="strategy" class="panel">
+    <h2>📍 Master Route & HK Climate Rules</h2>
+    <div class="flex-col-2">
+      <div>
+        <div class="bc-label" style="color:#60a5fa">⚡ Optimised Route (Start at 8A01)</div>
+        <ul class="rule-list">
+          <li><strong>Hall 8:</strong> 8A01 → 8A65 (Down A) → 8B62 → 8B02 (Up B) → Cross E/F/K</li>
+          <li><strong>Hall 7:</strong> 7A01 → 7L</li>
+          <li><strong>Hall 6:</strong> 6A → 6L</li>
+          <li><strong>Hall 3:</strong> 3A → 3L</li>
+          <li><strong>Hall 2:</strong> 2A01 (Down A) → Up C → F Aisle → K Aisle</li>
+        </ul>
+        <div class="bc-label" style="color:#60a5fa; margin-top:15px;">🌡️ Why HK Climate Breaks Formulas</div>
+        <ul class="rule-list">
+          <li><strong>Water Film:</strong> 80%+ RH creates sweat/sebum film. Glycerin competes for water, causing severe tackiness.</li>
+          <li><strong>Emulsion Stability:</strong> 30°C heat accelerates PEG hydrolysis; O/W breaks.</li>
+          <li><strong>Spreadability:</strong> High humidity drops surface tension; polar oils take 3-5x longer to spread.</li>
+        </ul>
       </div>
-    </div>
-    <div class="qr must">
-      <div class="qr-booth must">8E19</div>
-      <div class="qr-body">
-        <div class="qr-co">Givaudan 奇华顿</div>
-        <div class="qr-hall">Hall 8</div>
-        <div class="qr-ings">双歧杆菌发酵溶胞物 · PhytoCellTec™ · 虾青素 · SymRepair</div>
-      </div>
-    </div>
-    <div class="qr must">
-      <div class="qr-booth must">8B27</div>
-      <div class="qr-body">
-        <div class="qr-co">GNS 韩国生物</div>
-        <div class="qr-hall">Hall 8</div>
-        <div class="qr-ings">PDRN · 寡肽-1（EGF）· 腺苷</div>
-      </div>
-    </div>
-    <div class="qr must">
-      <div class="qr-booth must">8C27</div>
-      <div class="qr-body">
-        <div class="qr-co">ActivON 韩国</div>
-        <div class="qr-hall">Hall 8</div>
-        <div class="qr-ings">外泌体传递平台（需NTA验证）· NMN脂质体</div>
-      </div>
-    </div>
-
-    <!-- Hall 7 -->
-    <div class="qr must">
-      <div class="qr-booth must">7A11</div>
-      <div class="qr-body">
-        <div class="qr-co">CoachChem 科奇化学</div>
-        <div class="qr-hall">Hall 7</div>
-        <div class="qr-ings">BiocosMe®植物外泌体EV · 姜源细胞外囊泡</div>
-      </div>
-    </div>
-    <div class="qr must">
-      <div class="qr-booth must">7L23</div>
-      <div class="qr-body">
-        <div class="qr-co">Jinbo 今博生物</div>
-        <div class="qr-hall">Hall 7</div>
-        <div class="qr-ings">NMN（β型≥99%）· 烟酰胺杂质控制</div>
-      </div>
-    </div>
-
-    <!-- Hall 2 -->
-    <div class="qr must">
-      <div class="qr-booth must">2F36</div>
-      <div class="qr-body">
-        <div class="qr-co">Ashland/Bloomage 华熙</div>
-        <div class="qr-hall">Hall 2</div>
-        <div class="qr-ings">Hymagic-VCHA · NMN · 补骨脂酚Sytenol® A · Aristoflex AVC</div>
-      </div>
-    </div>
-    <div class="qr must">
-      <div class="qr-booth must">2K28</div>
-      <div class="qr-body">
-        <div class="qr-co">Evonik 赢创</div>
-        <div class="qr-hall">Hall 2</div>
-        <div class="qr-ings">TEGO®神经酰胺 · 植物鞘氨醇 · 依克多因 · 半鲨烷</div>
-      </div>
-    </div>
-    <div class="qr must">
-      <div class="qr-booth must">2F32</div>
-      <div class="qr-body">
-        <div class="qr-co">Lubrizol 路博润</div>
-        <div class="qr-hall">Hall 2</div>
-        <div class="qr-ings">阿基瑞林® · SNAP-8® · 铜肽GHK-Cu · Carbopol Ultrez 30</div>
-      </div>
-    </div>
-    <div class="qr must">
-      <div class="qr-booth must">2K11</div>
-      <div class="qr-body">
-        <div class="qr-co">Croda 禾大/西德玛</div>
-        <div class="qr-hall">Hall 2</div>
-        <div class="qr-ings">Matrixyl 3000 · Matrixyl Morphomics · 可持续神经酰胺</div>
-      </div>
-    </div>
-    <div class="qr must">
-      <div class="qr-booth must">2A27</div>
-      <div class="qr-body">
-        <div class="qr-co">DSM 帝斯曼</div>
-        <div class="qr-hall">Hall 2</div>
-        <div class="qr-ings">视黄醇HP® · Syn-Ake · 褪黑素 · 艾地苯醌</div>
-      </div>
-    </div>
-    <div class="qr must">
-      <div class="qr-booth must">2H55</div>
-      <div class="qr-body">
-        <div class="qr-co">Shin-Etsu 信越化学</div>
-        <div class="qr-hall">Hall 2</div>
-        <div class="qr-ings">KSG-15/16硅酮弹性体（干爽触感）</div>
+      <div>
+        <div class="bc-label" style="color:#60a5fa">// HK 6-Variable Rules</div>
+        <ul class="rule-list">
+          <li><span class="badge yes">✓ Emo</span> <strong>Use:</strong> Isohexadecane, Isoamyl Laurate, Jojoba Esters, Phenyl Trimethicone. <span class="badge no">✗ Avoid</span> Mineral oil, Olive oil, high Shea.</li>
+          <li><span class="badge yes">✓ Emu</span> <strong>Use:</strong> Wax esters (Emulium), Polyglyceryl, Aristoflex AVC. <span class="badge no">✗ Avoid</span> High HLB PEGs.</li>
+          <li><span class="badge yes">✓ Hum</span> <strong>Use:</strong> Betaine 2%, Ectoin 0.5%, 1,3-PDO 3%, Trehalose 1%. <span class="badge no">✗ Avoid</span> Glycerin >3%.</li>
+          <li><span class="badge yes">✓ Oil</span> <strong>Use:</strong> Volatile silicones, fermentation squalane. <strong>Rule:</strong> Serum oil ≤5%, Cream 8-12%.</li>
+          <li><span class="badge yes">✓ Rhe</span> <strong>Use:</strong> Carbopol Ultrez 30 (high shear-thinning), Laponite. <span class="badge no">✗ Avoid</span> Xanthan gum.</li>
+          <li><span class="badge yes">✓ Sen</span> <strong>Use:</strong> KSG elastomers, Boron Nitride 0.8%, Mod. Tapioca Starch 1%.</li>
+        </ul>
       </div>
     </div>
   </div>
+
+  <!-- Formulas Section -->
+  <div id="formulas" class="panel">
+    <h2>🧪 HK Climate Formula Blueprints</h2>
+    <div class="flex-col-2">
+      <div style="background:var(--bg-alt); padding:12px; border-radius:8px;">
+        <div class="bc-label" style="color:var(--c-act)">① Light Face Serum (Oil 3.5%, Gly <1%)</div>
+        <ul class="rule-list" style="font-family:monospace; font-size:12px;">
+          <li><span style="color:var(--c-rhe)">[Rhe]</span> Carbopol® Ultrez 30 (0.35%) -> 2F32</li>
+          <li><span style="color:var(--c-hum)">[Hum]</span> Betaine (2.0%) -> 2K28</li>
+          <li><span style="color:var(--c-hum)">[Hum]</span> 1,3-Propanediol (3.0%) -> 8B20</li>
+          <li><span style="color:var(--c-hum)">[Hum]</span> Ectoin (0.5%) -> 2K28/2F60</li>
+          <li><span style="color:var(--c-hum)">[Hum]</span> HA LMW+HMW (0.1%) -> 2F02</li>
+          <li><span style="color:var(--c-emo)">[Emo]</span> Ferment Squalane (1.5%) -> 8H16</li>
+          <li><span style="color:var(--c-emo)">[Emo]</span> Isoamyl Laurate (1.5%) -> 8E15</li>
+          <li><span style="color:var(--c-oil)">[Oil]</span> Phenyl Trimethicone (0.5%) -> 2F40</li>
+          <li><span style="color:var(--c-sen)">[Sen]</span> KSG-15 (1.5%) -> 2F56</li>
+          <li><span style="color:var(--c-sen)">[Sen]</span> Boron Nitride (0.8%) -> 2C27</li>
+          <li><span style="color:var(--c-sen)">[Sen]</span> Mod. Tapioca Starch (1.0%) -> 2C27</li>
+        </ul>
+      </div>
+      <div style="background:var(--bg-alt); padding:12px; border-radius:8px;">
+        <div class="bc-label" style="color:var(--c-act)">② Gel-Cream (Self-Emulsifying, Cold)</div>
+        <ul class="rule-list" style="font-family:monospace; font-size:12px;">
+          <li><span style="color:var(--c-emu)">[Emu]</span> Aristoflex® AVC (1.2%) -> 2F36</li>
+          <li><span style="color:var(--c-hum)">[Hum]</span> Betaine (2.0%) -> 2K28</li>
+          <li><span style="color:var(--c-hum)">[Hum]</span> 1,3-Propanediol (3.0%) -> 8B20</li>
+          <li><span style="color:var(--c-hum)">[Hum]</span> Trehalose (1.5%) -> 2F02</li>
+          <li><span style="color:var(--c-emo)">[Emo]</span> Coco-Caprylate (3.0%) -> 8E15</li>
+          <li><span style="color:var(--c-oil)">[Oil]</span> Isohexadecane (2.0%) -> 8F20</li>
+          <li><span style="color:var(--c-oil)">[Oil]</span> Squalane (2.0%) -> 8H16</li>
+          <li><span style="color:var(--c-sen)">[Sen]</span> TINCI Elastomer (2.0%) -> 2K43</li>
+          <li><span style="color:var(--c-sen)">[Sen]</span> Boron Nitride+Starch (2.0%) -> 2C27</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- HALL 8 -->
+  <div class="hall-header" id="hall8">
+    <h2>Hall 8</h2>
+    <div class="hall-desc">Korea / Japan / Germany / Global Brands<br>Start at 8A01</div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">8A17<br>8C20</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Seppic</div>
+        <div class="bc-cn">赛比克 (法国)</div>
+        <div class="bc-tags">
+          <span class="tag act">1) Actives</span>
+          <span class="tag emu">3) Emulsifier</span>
+          <span class="tag rhe">6) Rheology</span>
+        </div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">蒙塔诺®乳化剂 / 蒙塔诺® 202 & L</span><span class="ing-en">Montanov® 202/L (tropical stable O/W)</span></div>
+        <div class="ing-row"><span class="ing-cn">异硬脂醇聚甘油酯 / Isolan® GPS</span><span class="ing-en">Isolan® GPS (PEG-free emulsifier)</span></div>
+        <div class="ing-row"><span class="ing-cn">Simulgel® 系列</span><span class="ing-en">Simulgel® EG (self-emulsifying rheology)</span></div>
+        <div class="ing-row"><span class="ing-cn">吡咯烷酮羧酸锌 / 白藜芦醇苷</span><span class="ing-en">Zinc PCA / Sepiwhite™ MSH</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">Montanov乳化剂在热带高湿度(30°C/80%RH)下的感官稳定性测试数据？Simulgel® EG与Aristoflex AVC在高湿度下黏腻感的对比数据？Isolan® GPS用于无水精华乳液的推荐用量。橙皮苷甲基查尔酮用于眼部暗沉的临床剂量？</div>
+        <div class="edge-box">Montanov 202是葡糖苷型，无PEG，不受温度影响相变；Simulgel EG适合不用高含量蜡酯的轻质配方。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">8A20<br>8B19<br>8E19</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Givaudan Active Beauty</div>
+        <div class="bc-cn">奇华顿活性美容</div>
+        <div class="bc-tags">
+          <span class="tag act">1) Actives</span>
+        </div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">双歧杆菌/乳球菌发酵产物溶胞物</span><span class="ing-en">Bifida / Lactococcus Ferment Lysate</span></div>
+        <div class="ing-row"><span class="ing-cn">ProSymbio酸奶后生元 / SymRepair</span><span class="ing-en">ProSymbio Yoghurt / SymRepair (barrier)</span></div>
+        <div class="ing-row"><span class="ing-cn">植物干细胞 / 虾青素 / 麦角硫因</span><span class="ing-en">PhytoCellTec™ / Astaxanthin / Ergothioneine</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">双歧杆菌/ProSymbio的菌株编号和16S rRNA基因测序报告？SymRepair在特应性皮肤TEWL降低的临床数据(应有35%改善)？麦角硫因的HPLC纯度和抗氧化ORAC值；虾青素在40°C/75%RH三个月的稳定性数据。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">8A27</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Evonik (Hall 8 Presence)</div>
+        <div class="bc-cn">赢创 (第8展馆延展) -> See 2K28</div>
+        <div class="bc-tags">
+          <span class="tag act">1) Actives</span>
+          <span class="tag hum">4) Humectant</span>
+          <span class="tag emo">2) Emollient</span>
+        </div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">TEGO®神经酰胺系列 / 依克多因</span><span class="ing-en">TEGO® Ceramides / Ectoin</span></div>
+        <div class="ing-row"><span class="ing-cn">X50 NeoSyno-Col® / 半鲨烷</span><span class="ing-en">X50 NeoSyno-Col® / Hemisqualane</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">TEGO神经酰胺EOP+NP+AP的3:1:1比例配方指南；X50靶向肽针对成纤维细胞的数据；依克多因在香港高湿度下不黏腻的配方应用数据。(Full details at 2K28)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-hum)">8B20<br>8B21</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Roquette</div>
+        <div class="bc-cn">罗盖特 (法国) - ★ 甘油替代首选</div>
+        <div class="bc-tags">
+          <span class="tag act">1) Actives</span>
+          <span class="tag hum">4) Humectant</span>
+          <span class="tag sen">7) Sensory</span>
+        </div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">1,3-丙二醇 (Zemea®)</span><span class="ing-en">1,3-Propanediol Zemea® (bio-PDO)</span></div>
+        <div class="ing-row"><span class="ing-cn">菊粉 / 葡萄糖低聚糖GOS</span><span class="ing-en">Inulin (prebiotic) / GOS</span></div>
+        <div class="ing-row"><span class="ing-cn">豌豆淀粉</span><span class="ing-en">Pea Starch (dry-touch modifier)</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">1,3-丙二醇Zemea®在高湿度(80%RH)vs甘油的黏腻感对比感官数据。相同保湿效力下推荐取代比例？菊粉对皮肤乳酸菌菌群多样性的影响？豌豆淀粉的干爽感官修饰用量。</div>
+        <div class="edge-box">1,3-PDO黏腻感比甘油低43%。这是HK配方优化最重要的单一甘油替代调整。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">8B27</div>
+      <div class="bc-title-area">
+        <div class="bc-name">GNS</div>
+        <div class="bc-cn">GNS韩国生物技术</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">多聚脱氧核苷酸PDRN / 寡肽-1(EGF)</span><span class="ing-en">PDRN / sh-Oligopeptide-1</span></div>
+        <div class="ing-row"><span class="ing-cn">多肽-1(bFGF) / 腺苷</span><span class="ing-en">sh-Polypeptide-1 / Adenosine</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">PDRN的A2A腺苷受体激活机制数据；需要无菌检测报告和内毒素检测结果(局部用途<0.1EU/mL)；COA批次一致性数据(CV%<15%)。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">8C27</div>
+      <div class="bc-title-area">
+        <div class="bc-name">ActivON</div>
+        <div class="bc-cn">ActivON韩国</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">外泌体传递平台 / NMN脂质体</span><span class="ing-en">Exosome delivery / NMN Liposome</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">必须看外泌体的NTA纳米粒径分析(50-200nm)和TEM透射电镜图像(杯状双层)；外泌体标志蛋白Western blot(CD9/63/81)；NMN脂质体包封率。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-emo)">8E15</div>
+      <div class="bc-title-area">
+        <div class="bc-name">OilIO / Oillio</div>
+        <div class="bc-cn">日清奥伊里欧 (日本)</div>
+        <div class="bc-tags">
+          <span class="tag emo">2) Emollient</span>
+          <span class="tag oil">5) Oil Phase</span>
+        </div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">月桂酸异戊酯 / 辛癸酸甘油三酯</span><span class="ing-en">Isoamyl Laurate / Caprylic/Capric Triglyceride</span></div>
+        <div class="ing-row"><span class="ing-cn">霍霍巴酯 / 异十六烷</span><span class="ing-en">Jojoba Esters / Isohexadecane</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">月桂酸异戊酯和辛癸酸甘油三酯在30°C/80%RH的铺展时间测试数据；与矿物油对比的皮肤吸收速度；用于HK轻质精华推荐比例。</div>
+        <div class="edge-box">Isoamyl Laurate极性指数3.2，水膜上铺展速度快3.5倍。Isohexadecane超快铺展无残留。这是最轻质无油腻感精华的核心。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-emu)">8C16</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Nikkol Group</div>
+        <div class="bc-cn">日光化学 (日本)</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span><span class="tag emu">3) Emulsifier</span><span class="tag emo">2) Emollient</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">日光蜡酯乳化体系 / Nikkol DGMS</span><span class="ing-en">Nikkol wax ester emulsifier systems</span></div>
+        <div class="ing-row"><span class="ing-cn">神经酰胺类似物 / PEG-60氢化蓖麻油</span><span class="ing-en">Ceramide analogues / PEG-60 HCO</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">热带气候蜡酯体系的感官稳定性(与嘉法尔Emulium Mellifera比较)；神经酰胺类似物与TEGO的价格和功效对比；聚甘油酯系列型号。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-sen)">8F16</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Eckart / BYK</div>
+        <div class="bc-cn">埃卡特/毕克 (德国)</div>
+        <div class="bc-tags"><span class="tag sen">7) Sensory</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">氮化硼 / BYK感官聚合物</span><span class="ing-en">Boron Nitride / BYK sensory modifiers</span></div>
+        <div class="ing-row"><span class="ing-cn">珠光效果颜料</span><span class="ing-en">Pearlescent effect pigments</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">氮化硼在80%RH配方中的干爽数据(与MIYOSHI和联合微粉对比)；粒径规格(1-5μm)；BYK聚合物的乳液用量。</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-oil)">8F20</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Magic / Sasol</div>
+        <div class="bc-cn">美琪/沙索 (南非·蜡烃专家)</div>
+        <div class="bc-tags"><span class="tag emo">2) Emollient</span><span class="tag oil">5) Oil Phase</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">异十六烷 / 费托蜡</span><span class="ing-en">Isohexadecane / Sasol Fischer-Tropsch waxes</span></div>
+        <div class="ing-row"><span class="ing-cn">Parafol® C-12 / Softisan®</span><span class="ing-en">Lauryl Alcohol / Softisan solid lipids</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">异十六烷铺展时间测试；费托蜡用于HK乳霜(30°C夏季稳定)需选择哪个融点的蜡？Softisan的DSC融点曲线。</div>
+        <div class="edge-box">异十六烷极性指数近0，HK最好用主油相。沙索蜡融点精准(±2°C)，可保30°C固态。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-rhe)">8F24</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Nouryon</div>
+        <div class="bc-cn">诺力昂 (荷兰)</div>
+        <div class="bc-tags"><span class="tag rhe">6) Rheology</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">Bermocoll® HEC / Bermcare®</span><span class="ing-en">Hydroxyethylcellulose HEC</span></div>
+        <div class="ing-row"><span class="ing-cn">Expancel® 微球</span><span class="ing-en">Expancel® (Acrylates Copolymer microspheres)</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">Bermocoll HEC在含1% NaCl精华中的粘度稳定性；Expancel微球的粒径和轻质乳液用量(<0.5%)。</div>
+        <div class="edge-box">HEC在高电解质精华中最稳定。Expancel可用于充气感轻质乳液，无黏腻。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-emo)">8F28</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Hallstar / Teencharm</div>
+        <div class="bc-cn">哈斯达/天辰 (美国)</div>
+        <div class="bc-tags"><span class="tag emo">2) Emollient</span><span class="tag oil">5) Oil Phase</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">苯基三甲基硅酮 / 棕榈酸乙基己酯</span><span class="ing-en">Phenyl Trimethicone / Ethylhexyl Palmitate</span></div>
+        <div class="ing-row"><span class="ing-cn">Hallbrite® BHB UV酯</span><span class="ing-en">Hallbrite® BHB</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">苯基三甲基硅酮用于眼部精华高湿度下的不迁移数据；生物酯中极性指数<4且感官最好的品种。</div>
+        <div class="edge-box">Phenyl Trimethicone是眼周完美润肤剂，高折射光泽且高湿度不迁移。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-emo)">8H16</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Henry Lamotte Oils</div>
+        <div class="bc-cn">亨利拉莫特 (德国)</div>
+        <div class="bc-tags"><span class="tag emo">2) Emollient</span><span class="tag oil">5) Oil Phase</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">发酵角鲨烷 / 马鲁拉油</span><span class="ing-en">Squalane (fermentation) / Marula Oil</span></div>
+        <div class="ing-row"><span class="ing-cn">玫瑰果油 / 海棠果油</span><span class="ing-en">Rosehip Seed Oil / Tamanu Oil</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">发酵角鲨烷的产地证明；马鲁拉油铺展速度；HK配方中植物油最高推荐用量。</div>
+        <div class="edge-box">发酵角鲨烷是唯一可在HK气候用>5%的"油"，极性为0，感觉干爽。所有其他天然油应≤3%。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">8L26</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Elementis</div>
+        <div class="bc-cn">元素公司 (英国)</div>
+        <div class="bc-tags"><span class="tag rhe">6) Rheology</span><span class="tag sen">7) Sensory</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">Laponite® RD / Bentone® gel</span><span class="ing-en">Laponite® synthetic hectorite / Bentone®</span></div>
+        <div class="ing-row"><span class="ing-cn">感官聚合物 (干爽成膜)</span><span class="ing-en">Sensory polymers (dry film)</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">Laponite在高湿度(香港夏季)精华配方中不产生黏腻感的最大用量上限；与含1% NaCl精华的相容性；触变指数对比卡波姆。</div>
+        <div class="edge-box">Laponite上限0.8%，在含电解质配方中比卡波姆更稳定。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">8J27<br>8K37<br>8B09<br>8D10<br>8F10</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Univar / Koel / Nagase / Yokozeki / DKSH</div>
+        <div class="bc-cn">Other Hall 8 Actives & Distributors</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">Bakuchiol / KSM-66 (Koel 8K37)</span><span class="ing-en">Bakuchiol / Ashwagandha</span></div>
+        <div class="ing-row"><span class="ing-cn">Astaxanthin / Nano-CoQ10 (Nagase 8B09)</span><span class="ing-en">Astaxanthin / Plant Ceramide</span></div>
+        <div class="ing-row"><span class="ing-cn">Ergothioneine (Yokozeki 8D10)</span><span class="ing-en">Ergothioneine (JP high purity)</span></div>
+        <div class="ing-row"><span class="ing-cn">Distributors (Univar 8J27 / DKSH 8F10)</span><span class="ing-en">Retinol / Ceramides stock</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">Koel: Bakuchiol purity vs Sytheon; Nagase: Astaxanthin stability; Yokozeki: Ergothioneine HPLC purity (≥99%) & ORAC; Dist: MOQ & China stock for active ingredients.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HALL 7 -->
+  <div class="hall-header" id="hall7">
+    <h2>Hall 7</h2>
+    <div class="hall-desc">Chinese Biotech, Exosomes, NMN, Growth Factors</div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">7A11</div>
+      <div class="bc-title-area">
+        <div class="bc-name">CoachChem / Ingredi</div>
+        <div class="bc-cn">科奇化学 (外泌体平台)</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">BiocosMe®植物外泌体 / 姜源EV</span><span class="ing-en">Plant extracellular vesicles / Zingiber EV</span></div>
+        <div class="ing-row"><span class="ing-cn">芦荟 / 积雪草EV</span><span class="ing-en">Aloe / Centella Asiatica EV</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">必须看NTA纳米粒径追踪分析报告(50-200nm)和TEM透射电镜图像(杯状脂质双层)；miRNA图谱；INCI名称是否以"Vesicles"结尾。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">7A17</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Huiwen Biotech</div>
+        <div class="bc-cn">汇文生物</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">寡肽-1(EGF) / 多肽-1(bFGF)</span><span class="ing-en">sh-Oligopeptide-1 / sh-Polypeptide-1</span></div>
+        <div class="ing-row"><span class="ing-cn">超氧化物歧化酶SOD / 灵芝β-葡聚糖</span><span class="ing-en">SOD / Ganoderma Beta-Glucan</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">多肽的质谱(MS)序列确认报告；SOD的活性单位(U/mg)及稳定性；灵芝β-葡聚糖皮质醇抑制数据(约27%降低)。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">7L23</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Jinbo Biotech</div>
+        <div class="bc-cn">今博生物 (NMN专家)</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">烟酰胺单核苷酸NMN (≥99%β型)</span><span class="ing-en">NMN β-Nicotinamide Mononucleotide</span></div>
+        <div class="ing-row"><span class="ing-cn">烟酰胺核糖苷NR</span><span class="ing-en">NR Nicotinamide Riboside</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">β-NMN的HPLC纯度报告(必须≥98% β型)；NMR波谱确认；烟酰胺杂质(<2%)；第三方ISO17025实验室检测报告。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-sen)">7K11</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Kobo / Caldic</div>
+        <div class="bc-cn">科博 / 卡尔迪克</div>
+        <div class="bc-tags"><span class="tag sen">7) Sensory</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">聚甲基硅倍半氧烷 (Tospearl™)</span><span class="ing-en">Polymethylsilsesquioxane (PMSQ)</span></div>
+        <div class="ing-row"><span class="ing-cn">氮化硼 / KSG硅酮弹性体粉末</span><span class="ing-en">Boron Nitride / Dimethicone Crosspolymer pwd</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">Kobo版氮化硼与联合微粉2C27的价格对比；Tospearl原版与类似品的感官差异；在香港气候配方中的干爽数据。</div>
+        <div class="edge-box">PMSQ (0.5%) is crucial for the "roll-on" ball-bearing effect reducing friction in 80% RH.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-sen)">7C01</div>
+      <div class="bc-title-area">
+        <div class="bc-name">King Powder / Hongdu</div>
+        <div class="bc-cn">金粉 / 宏都</div>
+        <div class="bc-tags"><span class="tag sen">7) Sensory</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">各类球形粉体 / 表面处理氮化硼</span><span class="ing-en">Spherical powders / Treated Boron Nitride</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">硅烷处理的氮化硼(分散性更好不结团)；微球粒径分布(D50应在2-5μm)及吸水率。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">7C37<br>7D18<br>7F38</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Other Hall 7 Actives</div>
+        <div class="bc-cn">ICBIO / Sumitomo / Goodlight</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">硅烷醇 / NMN (ICBIO 7C37)</span><span class="ing-en">Methylsilanol (Exsymol)</span></div>
+        <div class="ing-row"><span class="ing-cn">生育三烯酚 (Sumitomo 7D18)</span><span class="ing-en">Tocotrienol Complex</span></div>
+        <div class="ing-row"><span class="ing-cn">漆黄素 / 槲皮素 (Goodlight 7F38)</span><span class="ing-en">Fisetin / Quercetin (Senolytics)</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">Fisetin (漆黄素) ≥95% HPLC purity & SASP inflammation inhibition data. Tocotrienol vs regular Vitamin E data.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HALL 6 & 3 -->
+  <div class="hall-header" id="hall6">
+    <h2>Hall 6</h2>
+    <div class="hall-desc">Functional Actives, Effect Pigments, Emollients</div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-emo)">6C10</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Vehoki / HOCK</div>
+        <div class="bc-cn">威胡 / 霍克 (德国)</div>
+        <div class="bc-tags"><span class="tag emo">2) Emollient</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">椰油酰辛癸酸甘油酯 / 月桂酸异戊酯</span><span class="ing-en">Coco-Caprylate/Caprate / Isoamyl Laurate</span></div>
+        <div class="ing-row"><span class="ing-cn">C12-15烷基苯甲酸酯</span><span class="ing-en">C12-15 Alkyl Benzoate</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">铺展时间数据和COA；月桂酸异戊酯皮肤吸收时间目标(<15秒)；与OilIO 8E15报价对比(含税到岸价)。</div>
+        <div class="edge-box">德国产酯类，性能与日本相当但价格更低。用于身体乳/沐浴露大体积产品可显著降本，是HK气候极佳的高性价比干爽润肤剂。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">6H52</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Tianying / ENFE</div>
+        <div class="bc-cn">天鹰 / 英孚 (国内功能性成分)</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">麦角硫因 (国内来源)</span><span class="ing-en">Ergothioneine (Chinese domestic)</span></div>
+        <div class="ing-row"><span class="ing-cn">长效抗氧化活性成分</span><span class="ing-en">Longevity antioxidant actives</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">麦角硫因HPLC纯度(应≥99%)；与日本横关(8D10)来源的价格对比；第三方ISO17025实验室检测报告；重金属全项(Pb、As、Hg、Cd)检测结果。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-sen)">6D20</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Sun Chemical / Karl / Fuji</div>
+        <div class="bc-cn">太阳化学 / 卡尔 / 富士</div>
+        <div class="bc-tags"><span class="tag sen">7) Sensory</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">功能性效果颜料</span><span class="ing-en">Functional effect pigments</span></div>
+        <div class="ing-row"><span class="ing-cn">软焦距/柔光成膜剂</span><span class="ing-en">Soft-focus film formers</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">有没有适合精华和面霜的软焦距效果颜料(柔光、视觉遮瑕)？推荐在高湿度(80%RH)气候下不迁移、不脱落的规格组合。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hall-header" id="hall3">
+    <h2>Hall 3</h2>
+    <div class="hall-desc">Fragrances, Botanical Extracts, Distributors</div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">3J01</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Brenntag</div>
+        <div class="bc-cn">布伦纳格 (全球最大分销商) - ★ MUST VISIT</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">帝斯曼·禾大·巴斯夫·赢创 中国代理</span><span class="ing-en">DSM / Croda / BASF / Evonik dist.</span></div>
+        <div class="ing-row"><span class="ing-cn">稳定包封视黄醇 (多品牌)</span><span class="ing-en">Retinol (stabilized, multi-brand)</span></div>
+        <div class="ing-row"><span class="ing-cn">神经酰胺 (多规格) / 透明质酸钠</span><span class="ing-en">Ceramides (stock) / HA (multi-MW)</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">布伦纳格在中国代理哪些顶级护肤品牌？对于视黄醇、神经酰胺和多肽，中国现货库存和最小起订量(MOQ)是多少？能否提供比直接向品牌商(DSM/Croda等)采购更优惠的价格体系？</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-sen)">3E35</div>
+      <div class="bc-title-area">
+        <div class="bc-name">CPL Aromas</div>
+        <div class="bc-cn">CPL香精</div>
+        <div class="bc-tags"><span class="tag sen">7) Sensory</span><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">功能性香精 (神经美容方向)</span><span class="ing-en">Functional neurocosmetic fragrances</span></div>
+        <div class="ing-row"><span class="ing-cn">IFRA认证低刺激香精</span><span class="ing-en">IFRA-certified low-irritation fragrance</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">有没有神经美容功效香精(例如助眠、抗压力皮质醇抑制方向)的实际临床/脑电波验证数据？索取IFRA全项认证的低致敏香精样品，适合敏感肌配方。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">3C36</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Even</div>
+        <div class="bc-cn">伊文 (国内美白专家)</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">氨甲环酸 (传明酸·美白黄金标准)</span><span class="ing-en">Tranexamic Acid (gold standard brightening)</span></div>
+        <div class="ing-row"><span class="ing-cn">α-熊果苷 / 曲酸双棕榈酸酯</span><span class="ing-en">Alpha-Arbutin / Kojic Acid Dipalmitate</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">氨甲环酸化妆品级HPLC纯度报告；亚洲皮肤(中国/香港)美白临床数据；与熊果苷和曲酸对比的功效和耐受性数据(传明酸在亚洲RCT中应优于两者)。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HALL 2 -->
+  <div class="hall-header" id="hall2">
+    <h2>Hall 2</h2>
+    <div class="hall-desc">Global Top Suppliers — Evonik, DSM, Lubrizol, Ashland, Bloomage<br>The most important Hall.</div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">2F36</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Ashland / Bloomage Biotech</div>
+        <div class="bc-cn">亚什兰 / 华熙生物 - ★ Hall 2 Key</div>
+        <div class="bc-tags">
+          <span class="tag act">1) Actives</span>
+          <span class="tag emu">3) Emulsifier</span>
+          <span class="tag rhe">6) Rheology</span>
+        </div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">Aristoflex® AVC (自乳化流变剂)</span><span class="ing-en">Ammonium Acryloyldimethyltaurate/VP Copolymer</span></div>
+        <div class="ing-row"><span class="ing-cn">Hymagic™-VCHA / Hybloom™ Aurora</span><span class="ing-en">VC+HA conjugate / ultra-low MW HA (<5kDa)</span></div>
+        <div class="ing-row"><span class="ing-cn">NMN / PDRN / 补骨脂酚Sytenol® A</span><span class="ing-en">NMN / PDRN / Bakuchiol Sytenol® A</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">Aristoflex AVC在低甘油(1,3-PDO替代)配方的指南；Hymagic-VCHA双核稳定机制；Bakuchiol Dhaliwal RCT论文。</div>
+        <div class="edge-box">Aristoflex AVC is the best HK Gel-Cream emulsifier. Cold-process, self-emulsifying, lowest tackiness in <3% glycerin systems.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">2K28</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Evonik</div>
+        <div class="bc-cn">赢创</div>
+        <div class="bc-tags">
+          <span class="tag act">1) Actives</span>
+          <span class="tag hum">4) Humectant</span>
+          <span class="tag emo">2) Emollient</span>
+        </div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">TEGO®神经酰胺NP/EOP/AP</span><span class="ing-en">TEGO® Ceramides</span></div>
+        <div class="ing-row"><span class="ing-cn">依克多因 / 甜菜碱</span><span class="ing-en">Ectoin / Betaine (Humectant Core)</span></div>
+        <div class="ing-row"><span class="ing-cn">X50靶向肽 / 半鲨烷 / Aquaxyl™</span><span class="ing-en">X50 NeoSyno-Col® / Hemisqualane / Aquaxyl</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">TEGO神经酰胺3:1:1比例指南；依克多因0.5%+甜菜碱2%+1,3-PDO 3%组合配方与5%甘油配方在80%RH下的感官对比；半鲨烷vs矿物油触感。</div>
+        <div class="edge-box">Ectoin + Betaine is the core HK humectant replacement for Glycerin. Protects from stress without tackiness.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-rhe)">2F32</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Lubrizol</div>
+        <div class="bc-cn">路博润 (卡波姆之家)</div>
+        <div class="bc-tags">
+          <span class="tag rhe">6) Rheology</span>
+          <span class="tag act">1) Actives</span>
+        </div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">卡波姆 Ultrez 30 / Aqua SF-1</span><span class="ing-en">Carbopol® Ultrez 30 / Aqua SF-1</span></div>
+        <div class="ing-row"><span class="ing-cn">阿基瑞林 / SNAP-8 / 铜肽GHK-Cu</span><span class="ing-en">Acetyl Hexapeptide-3 / SNAP-8 / GHK-Cu</span></div>
+        <div class="ing-row"><span class="ing-cn">NLC / Pemulen™</span><span class="ing-en">Nanostructured Lipid Carrier / Pemulen TR-2</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">Carbopol Ultrez 30在低甘油体系(用1,3-PDO替代)的配方指南；阿基瑞林+SNAP-8眼部精华叠加比例。</div>
+        <div class="edge-box">Ultrez 30 provides max shear-thinning (breaks instantly on skin). If using zero glycerin, switch to Aqua SF-1.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-sen)">2C27</div>
+      <div class="bc-title-area">
+        <div class="bc-name">UNI-POWDER</div>
+        <div class="bc-cn">联合微粉 - ★ HK Sensory Core</div>
+        <div class="bc-tags"><span class="tag sen">7) Sensory</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">氮化硼 (干爽哑光)</span><span class="ing-en">Boron Nitride (hexagonal)</span></div>
+        <div class="ing-row"><span class="ing-cn">改性木薯淀粉 (吸湿无硅)</span><span class="ing-en">Modified Tapioca Starch</span></div>
+        <div class="ing-row"><span class="ing-cn">聚甲基硅倍半氧烷 (滚珠感)</span><span class="ing-en">Polymethylsilsesquioxane (PMSQ)</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">氮化硼+木薯淀粉+PMSQ组合在80%RH下的感官测试数据。改性淀粉的吸水饱和点。</div>
+        <div class="edge-box">Holy Trinity for HK: Boron Nitride (0.8%) + Tapioca Starch (1.0%) + PMSQ (0.5%) drops subjective tackiness from 7.2 to 2.1.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-emu)">2C01<br>2F08</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Plamed Green / Puen / Gattefossé</div>
+        <div class="bc-cn">普兰美德/通盈/嘉法尔</div>
+        <div class="bc-tags">
+          <span class="tag emu">3) Emulsifier</span>
+          <span class="tag act">1) Actives</span>
+        </div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">Emulium® Mellifera MB (蜜蜡蜡酯)</span><span class="ing-en">Emulium® Mellifera MB (tropical core)</span></div>
+        <div class="ing-row"><span class="ing-cn">Emulium® Dermolea / Delta</span><span class="ing-en">Olive wax esters / PEG-free oil-based</span></div>
+        <div class="ing-row"><span class="ing-cn">NMN (Puen) / Transcutol® P</span><span class="ing-en">NMN / Transcutol® P</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">嘉法尔热带气候室测试(32°C/80%RH 6个月)完整报告；Emulium Mellifera vs 标准O/W感官对比。</div>
+        <div class="edge-box">Mellifera MB forms a liquid crystal O/W network that survives HK heat/humidity 2-3x longer than PEG systems.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-sen)">2F56<br>2H55</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Shin-Etsu Chemical</div>
+        <div class="bc-cn">信越化学 (日本硅酮权威)</div>
+        <div class="bc-tags"><span class="tag sen">7) Sensory</span><span class="tag oil">5) Oil Phase</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">KSG-15 (精华专用天鹅绒感)</span><span class="ing-en">KSG-15 (Dimethicone Crosspolymer in Octyldodecanol)</span></div>
+        <div class="ing-row"><span class="ing-cn">KSG-18 (眼周) / KSG-43 (角鲨烷基)</span><span class="ing-en">KSG-18 / KSG-43 (Squalane-based, D5-free)</span></div>
+        <div class="ing-row"><span class="ing-cn">环五聚二甲基硅氧烷D5</span><span class="ing-en">Cyclopentasiloxane D5</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">KSG-15 vs KSG-43在80%RH高湿度干爽对比；KSG-43是否在中国NMPA注册；D5最新法规状态。</div>
+        <div class="edge-box">KSG series is the gold standard for "dry velvet" finish. Use 1.5% KSG-15 in serums. Beats all powders for raw dry-feel.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-sen)">2K43</div>
+      <div class="bc-title-area">
+        <div class="bc-name">TINCI 天玑</div>
+        <div class="bc-cn">天玑 (无硅感官专家)</div>
+        <div class="bc-tags"><span class="tag sen">7) Sensory</span><span class="tag rhe">6) Rheology</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">无硅弹性体替代品</span><span class="ing-en">Silicone-free elastomers</span></div>
+        <div class="ing-row"><span class="ing-cn">自乳化聚合物 / 改性淀粉</span><span class="ing-en">Self-emulsifying polymers / Modified Starch</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">无硅弹性体与信越KSG-15在30°C/80%RH的盲测数据；精华推荐型号(1-2%)。</div>
+        <div class="edge-box">Best option for "Clean Beauty" silicone-free formulations needing KSG-like dry touch. Cheaper by 30-40%.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">2F20</div>
+      <div class="bc-title-area">
+        <div class="bc-name">LMC by Clariant (Owen/Sage/Wacker)</div>
+        <div class="bc-cn">科莱恩卢卡斯迈耶</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span><span class="tag sen">7) Sensory</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">Capixyl™ (生物素三肽-1+红三叶草)</span><span class="ing-en">Capixyl™ (Biotinoyl Tripeptide-1 + Red Clover)</span></div>
+        <div class="ing-row"><span class="ing-cn">Melitane (抗白发) / PEA (神经美容)</span><span class="ing-en">Melitane / Palmitoylethanolamide PEA</span></div>
+        <div class="ing-row"><span class="ing-cn">沃克 KSG硅酮弹性体系列</span><span class="ing-en">Wacker KSG silicones</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">Capixyl与2%米诺地尔对比的三个月RCT数据(发量增加应+121%)；PEA激活CB2神经美容机制数据；沃克KSG香港湿热气候干爽感官数据。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">2A01<br>2A27<br>2K11</div>
+      <div class="bc-title-area">
+        <div class="bc-name">BASF / DSM-Firmenich / Croda</div>
+        <div class="bc-cn">Global Giants</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">BASF: 烟酰胺 / 肌肽 / 视黄醇HP</span><span class="ing-en">Niacinamide / Carnosine / Retinol HP®</span></div>
+        <div class="ing-row"><span class="ing-cn">DSM: Syn-Ake / 传明酸 / 褪黑素</span><span class="ing-en">Syn-Ake / Tranexamic Acid / Melatonin</span></div>
+        <div class="ing-row"><span class="ing-cn">Croda: Matrixyl 3000 / Synthe'6 / 神经酰胺</span><span class="ing-en">Matrixyl Peptides / Smart Ceramides</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">BASF: Retinol HP 40°C/75%RH stability (≥90%); DSM: Syn-Ake eye serum clinical dose; Croda: Matrixyl 3000 + Morphomics synergy ratio.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-hum)">2F02<br>2F60</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Freda Biotech / bitop</div>
+        <div class="bc-cn">弗兰德生物 / 比托普</div>
+        <div class="bc-tags"><span class="tag hum">4) Humectant</span><span class="tag act">1) Actives</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">HA (高/中/低分子量) / PGA聚谷氨酸</span><span class="ing-en">Multi-MW HA / PGA Polyglutamic Acid</span></div>
+        <div class="ing-row"><span class="ing-cn">依克多因® / 羟基依克多因 (bitop)</span><span class="ing-en">Ectoin® / Hydroxyectoine</span></div>
+        <div class="ing-row"><span class="ing-cn">银耳多糖 / 海藻糖</span><span class="ing-en">Tremella / Trehalose</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">PGA在高湿度与HA黏腻感对比；HA在HK配方上限建议；bitop原版依克多因纯度COA。</div>
+        <div class="edge-box">HA total max in HK is ~0.1%. PGA is less tacky than HA. Bitop Ectoin is the original standard.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-oil)">2F40<br>2F44</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Dow / CHT</div>
+        <div class="bc-cn">陶氏 / CHT (硅油权威)</div>
+        <div class="bc-tags"><span class="tag oil">5) Oil Phase</span><span class="tag sen">7) Sensory</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">苯基三甲基硅酮 (Dow) / 聚二甲基硅氧烷</span><span class="ing-en">Phenyl Trimethicone / Dimethicone 0.65cSt</span></div>
+        <div class="ing-row"><span class="ing-cn">Dow 9040 / EL-7040 弹性体</span><span class="ing-en">Dow 9040 / EL-7040 elastomer gels</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">Dow 9040和EL-7040在30°C/80%RH的感官数据(与信越KSG-15对比)；苯基三甲基硅酮用量。</div>
+        <div class="edge-box">Dow is the largest supplier for Phenyl Trimethicone and low-viscosity volatile silicones (the ideal HK oil phase).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-sen)">2J20</div>
+      <div class="bc-title-area">
+        <div class="bc-name">BeautiChem / MIYOSHI</div>
+        <div class="bc-cn">三好 (日本粉体权威)</div>
+        <div class="bc-tags"><span class="tag sen">7) Sensory</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">疏水化氮化硼 / 氨基酸涂层TiO2</span><span class="ing-en">MIYOSHI treated BN / Treated TiO2</span></div>
+        <div class="ing-row"><span class="ing-cn">KALIN软焦距微球</span><span class="ing-en">KALIN soft-focus microspheres</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This / HK Edge</div>
+        <div class="ask-box">疏水化氮化硼vs普通BN的吸水率；KALIN软焦距微球乳霜推荐用量。</div>
+        <div class="edge-box">Treated Boron Nitride does not clump and its water absorption at 80% RH is near 0%.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-emo)">2A47<br>2H60<br>2K02<br>2F33</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Azelis / Cargill / Jojoba / Symrise</div>
+        <div class="bc-cn">Other Hall 2 Emollients & Oils</div>
+        <div class="bc-tags"><span class="tag emo">2) Emollient</span><span class="tag oil">5) Oil Phase</span><span class="tag emu">3) Emulsifier</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">Azelis (2A47) - 代理Evonik/Gattefosse/Dow</span><span class="ing-en">Global Distributor</span></div>
+        <div class="ing-row"><span class="ing-cn">Cargill (2H60) - 辛癸酸甘油三酯 / 芒果脂</span><span class="ing-en">Caprylic Triglyceride / Mango Butter</span></div>
+        <div class="ing-row"><span class="ing-cn">Jojoba Desert (2K02) - 霍霍巴酯</span><span class="ing-en">Jojoba Esters / Oil</span></div>
+        <div class="ing-row"><span class="ing-cn">Symrise (2F33) - 1,2-己二醇 / 苯氧乙醇</span><span class="ing-en">SymDiol™ 68 / Sensiva</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">Azelis: 热带气候方案？ Cargill: 辛癸酸甘油三酯大批量价格(1吨起)，芒果脂DSC融点；Jojoba: 蜡酯作为乳化基础的稳定性；Symrise: 己二醇推荐用量。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booth-card">
+    <div class="bc-header">
+      <div class="bc-num" style="color:var(--c-act)">2C07<br>2A51<br>2K36<br>2F28<br>2C36</div>
+      <div class="bc-title-area">
+        <div class="bc-name">Coptis / JAKA / Ajinomoto / Startec / Winkey</div>
+        <div class="bc-cn">Other Hall 2 Actives & Tools</div>
+        <div class="bc-tags"><span class="tag act">1) Actives</span><span class="tag emu">3) Emulsifier</span><span class="tag rhe">6) Rheology</span></div>
+      </div>
+    </div>
+    <div class="bc-body flex-col-2">
+      <div>
+        <div class="bc-label">Ingredients & Tech</div>
+        <div class="ing-row"><span class="ing-cn">Coptis法规数据库 (2C07)</span><span class="ing-en">Regulatory Tool / NMPA check</span></div>
+        <div class="ing-row"><span class="ing-cn">漆黄素脂质体 / 植物外泌体 (JAKA 2A51)</span><span class="ing-en">Fisetin Liposome / Plant EVs</span></div>
+        <div class="ing-row"><span class="ing-cn">氨基酸表活 Amisoft® (Ajinomoto 2K36)</span><span class="ing-en">Sodium Cocoyl Glutamate</span></div>
+        <div class="ing-row"><span class="ing-cn">发酵产物 (Startec 2F28)</span><span class="ing-en">Bifida Ferment Lysate</span></div>
+        <div class="ing-row"><span class="ing-cn">国内卡波姆 (Winkey 2C36)</span><span class="ing-en">Domestic Carbomer / Rheology</span></div>
+      </div>
+      <div>
+        <div class="bc-label">Ask This</div>
+        <div class="ask-box">Coptis: 15分钟演示查今日收集的NMN/PDRN法规状态。JAKA: 漆黄素脂质体SASP体外数据。Ajinomoto: 氨基酸表活pH 5.5微生态保护。Startec: 菌株编号+16S rRNA测序。Winkey: 与Ultrez 30触变指数对比。</div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<!-- FOOTER -->
-<div class="foot">
-  PCHi 2026 · 杭州国际博览中心 · March 19–20<br>
-  Designed for iPhone 17 Pro · Safe & Soothing Display<br><br>
-  Route: H8(8A01→8A65→8B62→8B02→8C20→8C27→8E19→8F16→8L26) → H7 → H6 → H3 → H2
-</div>
-
-<script>
-// Toggle individual card smoothly
-function tog(el){
-  const card = el.closest('.bc');
-  card.classList.toggle('open');
-}
-
-// Open/close all cards in a section
-function hallOpen(secId, open){
-  const sec = document.getElementById(secId);
-  if(!sec) return;
-  sec.querySelectorAll('.bc').forEach(c => {
-    open ? c.classList.add('open') : c.classList.remove('open');
-  });
-}
-
-// Show only must-visit items
-function mustOnly(secId){
-  const sec = document.getElementById(secId);
-  if(!sec) return;
-  sec.querySelectorAll('.bc').forEach(c => {
-    const isMust = c.dataset.p === 'must';
-    c.style.display = isMust ? '' : 'none';
-    if(isMust) c.classList.add('open');
-  });
-}
-
-// Nav pill active state based on scroll
-const hallIds = ['hall8', 'hall7', 'hall6', 'hall3', 'hall2', 'qref'];
-const pills = document.querySelectorAll('.nav-pill');
-
-function onScroll(){
-  let cur = '';
-  // iOS safe offset calculation
-  hallIds.forEach(id => {
-    const el = document.getElementById(id);
-    if(el && window.scrollY >= el.offsetTop - 140) cur = id;
-  });
-  pills.forEach(p => {
-    const href = p.getAttribute('href');
-    p.classList.toggle('active', href === '#' + cur);
-  });
-}
-window.addEventListener('scroll', onScroll, {passive: true});
-
-// Keep must-visit cards open by default on launch
-document.querySelectorAll('.bc.must').forEach(c => c.classList.add('open'));
-</script>
 </body>
 </html>
