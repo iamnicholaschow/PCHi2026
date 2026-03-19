@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>HK Skin-Feel Guide · PCHi 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;700;900&display=swap');
+
+:root{
+  /* Variable colours — each of the 6 gets its own identity */
+  --v1:#e85d26; --v1b:#2a1208; --v1c:#7c2d12; /* Emollient — warm orange */
+  --v2:#0891b2; --v2b:#082733; --v2c:#155e75; /* Emulsifier — cyan */
+  --v3:#16a34a; --v3b:#052011; --v3c:#14532d; /* Humectant — green */
+  --v4:#7c3aed; --v4b:#1e0a3c; --v4c:#4c1d95; /* Oil phase — purple */
+  --v5:#d97706; --v5b:#2a1a00; --v5c:#78350f; /* Rheology — amber */
+  --v6:#db2777; --v6b:#2a0618; --v6c:#831843; /* Sensory — pink */
+
+  --bg:#0a0908; --bg2:#131210; --bg3:#1c1a18;
+  --text:#e8e0d4; --text2:#9a8f84; --text3:#5a5048;
+  --border:#252220; --border2:#302c28;
+  --gold:#d4a843; --gold2:#f0c96a;
+  --cream:#f5f0e8;
+  --r:14px; --r2:10px; --r3:6px;
+  --mono:'Space Mono',monospace;
+  --sans:'Space Grotesk','Noto Sans SC',sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  font-size:15px;line-height:1.6;
+  color:var(--text);background:var(--bg);
+  padding-bottom:calc(80px + env(safe-area-inset-bottom));
+}
+
+/* ── STICKY NAV ── */
+.nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(10,9,8,0.97);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border2);
+  padding:10px 14px;
+  padding-top:calc(10px + env(safe-area-inset-top));
+}
+.nav-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.nav-brand{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px}
+.nav-tag{font-size:10px;color:var(--text3);background:var(--bg3);padding:3px 8px;border-radius:4px}
+.nav-vars{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:1px}
+.nav-vars::-webkit-scrollbar{display:none}
+.nv{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:var(--mono);font-size:11px;font-weight:700;
+  padding:5px 10px;border-radius:16px;
+  white-space:nowrap;text-decoration:none;
+  min-height:30px;border:1.5px solid transparent;
+  transition:all .15s;
+}
+.nv:active,.nv.active{opacity:1!important;filter:brightness(1.2)}
+.nv1{color:var(--v1);border-color:var(--v1c);background:var(--v1b)}
+.nv2{color:var(--v2);border-color:var(--v2c);background:var(--v2b)}
+.nv3{color:var(--v3);border-color:var(--v3c);background:var(--v3b)}
+.nv4{color:var(--v4);border-color:var(--v4c);background:var(--v4b)}
+.nv5{color:var(--v5);border-color:var(--v5c);background:var(--v5b)}
+.nv6{color:var(--v6);border-color:var(--v6c);background:var(--v6b)}
+.nv-map{color:var(--gold);border-color:#6b4f1a;background:#1a1000}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(145deg,#0a0908 0%,#0d1a0e 40%,#0a0d1a 100%);
+  padding:28px 16px 22px;
+  padding-top:calc(28px + env(safe-area-inset-top));
+  border-bottom:2px solid transparent;
+  border-image:linear-gradient(90deg,var(--v1),var(--v2),var(--v3),var(--v4),var(--v5),var(--v6)) 1;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 20%,rgba(232,93,38,.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-family:var(--mono);font-size:10px;letter-spacing:2px;
+  color:var(--gold);margin-bottom:10px;opacity:.8;
+}
+.hero h1{font-size:26px;font-weight:700;line-height:1.15;margin-bottom:6px}
+.hero h1 span{
+  background:linear-gradient(90deg,var(--v1),var(--v5));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:18px}
+
+/* 6-variable mini-grid */
+.var-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.vg{padding:8px 10px;border-radius:var(--r2);border:1px solid;text-align:center}
+.vg-n{font-family:var(--mono);font-size:18px;font-weight:700;line-height:1}
+.vg-l{font-size:10px;margin-top:2px;opacity:.8;line-height:1.3}
+.vg1{background:var(--v1b);border-color:var(--v1c);color:var(--v1)}
+.vg2{background:var(--v2b);border-color:var(--v2c);color:var(--v2)}
+.vg3{background:var(--v3b);border-color:var(--v3c);color:var(--v3)}
+.vg4{background:var(--v4b);border-color:var(--v4c);color:var(--v4)}
+.vg5{background:var(--v5b);border-color:var(--v5c);color:var(--v5)}
+.vg6{background:var(--v6b);border-color:var(--v6c);color:var(--v6)}
+
+/* ── HK CLIMATE SCIENCE HEADER ── */
+.climate-card{
+  margin:12px 12px 0;
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:var(--r);overflow:hidden;
+}
+.cc-head{
+  padding:12px 14px;
+  background:linear-gradient(90deg,rgba(8,145,178,.15),rgba(22,163,74,.10));
+  border-bottom:1px solid var(--border2);
+  font-family:var(--mono);font-size:11px;font-weight:700;
+  color:var(--gold2);letter-spacing:.5px;
+  display:flex;align-items:center;gap:8px;
+}
+.cc-body{padding:12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cc-item{font-size:12px;color:var(--text2);line-height:1.5;padding-left:12px;position:relative}
+.cc-item::before{content:'⚡';position:absolute;left:0;font-size:10px}
+.cc-item b{color:var(--text);font-weight:600}
+
+/* ── VARIABLE SECTION HEADER ── */
+.var-section{margin-top:20px}
+.var-hdr{
+  padding:16px 16px 12px;
+  display:flex;align-items:flex-start;gap:14px;
+  position:sticky;top:72px;z-index:90;
+}
+.var-hdr::before{
+  content:'';position:absolute;inset:0;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  z-index:-1;
+}
+.vh1 .var-hdr{background:rgba(42,18,8,.95);border-bottom:2px solid var(--v1)}
+.vh2 .var-hdr{background:rgba(8,39,51,.95);border-bottom:2px solid var(--v2)}
+.vh3 .var-hdr{background:rgba(5,32,17,.95);border-bottom:2px solid var(--v3)}
+.vh4 .var-hdr{background:rgba(30,10,60,.95);border-bottom:2px solid var(--v4)}
+.vh5 .var-hdr{background:rgba(42,26,0,.95);border-bottom:2px solid var(--v5)}
+.vh6 .var-hdr{background:rgba(42,6,24,.95);border-bottom:2px solid var(--v6)}
+
+.var-num{
+  font-family:var(--mono);font-size:44px;font-weight:700;
+  line-height:1;min-width:44px;
+}
+.vh1 .var-num{color:var(--v1)} .vh2 .var-num{color:var(--v2)}
+.vh3 .var-num{color:var(--v3)} .vh4 .var-num{color:var(--v4)}
+.vh5 .var-num{color:var(--v5)} .vh6 .var-num{color:var(--v6)}
+
+.var-info{}
+.var-title{font-size:18px;font-weight:700;color:var(--cream)}
+.var-subtitle{font-size:12px;color:var(--text2);margin-top:2px;line-height:1.4}
+.var-impact{
+  font-family:var(--mono);font-size:9px;font-weight:700;
+  padding:3px 8px;border-radius:4px;
+  display:inline-block;margin-top:4px;letter-spacing:.5px;
+}
+.vh1 .var-impact{background:var(--v1b);color:var(--v1);border:1px solid var(--v1c)}
+.vh2 .var-impact{background:var(--v2b);color:var(--v2);border:1px solid var(--v2c)}
+.vh3 .var-impact{background:var(--v3b);color:var(--v3);border:1px solid var(--v3c)}
+.vh4 .var-impact{background:var(--v4b);color:var(--v4);border:1px solid var(--v4c)}
+.vh5 .var-impact{background:var(--v5b);color:var(--v5);border:1px solid var(--v5c)}
+.vh6 .var-impact{background:var(--v6b);color:var(--v6);border:1px solid var(--v6c)}
+
+/* Science brief inside var header */
+.var-science{
+  margin:0 12px 2px;
+  padding:10px 13px;border-radius:var(--r2);
+  font-size:12px;line-height:1.6;color:var(--text2);
+}
+.vh1 .var-science{background:rgba(232,93,38,.07);border-left:3px solid var(--v1)}
+.vh2 .var-science{background:rgba(8,145,178,.07);border-left:3px solid var(--v2)}
+.vh3 .var-science{background:rgba(22,163,74,.07);border-left:3px solid var(--v3)}
+.vh4 .var-science{background:rgba(124,58,237,.07);border-left:3px solid var(--v4)}
+.vh5 .var-science{background:rgba(217,119,6,.07);border-left:3px solid var(--v5)}
+.vh6 .var-science{background:rgba(219,39,119,.07);border-left:3px solid var(--v6)}
+.var-science b{font-weight:700}
+.vh1 .var-science b{color:var(--v1)} .vh2 .var-science b{color:var(--v2)}
+.vh3 .var-science b{color:var(--v3)} .vh4 .var-science b{color:var(--v4)}
+.vh5 .var-science b{color:var(--v5)} .vh6 .var-science b{color:var(--v6)}
+
+/* HK rules box */
+.hk-rules{
+  margin:6px 12px 8px;
+  padding:10px 13px;
+  background:var(--bg3);
+  border:1px solid var(--border2);
+  border-radius:var(--r2);
+}
+.hkr-title{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;margin-bottom:6px}
+.hkr-row{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:12px;margin-bottom:5px;
+}
+.hkr-row:last-child{margin:0}
+.hkr-tag{
+  font-family:var(--mono);font-size:10px;font-weight:700;
+  padding:2px 6px;border-radius:3px;
+  white-space:nowrap;flex-shrink:0;margin-top:1px;
+}
+.tag-yes{background:#052011;color:#4ade80;border:1px solid #14532d}
+.tag-no{background:#2a0f0f;color:#f87171;border:1px solid #7f1d1d}
+.tag-how{background:#0a0d1a;color:#93c5fd;border:1px solid #1e3a5f}
+.hkr-text{color:var(--text2);line-height:1.4}
+
+/* Section body */
+.section{padding:0 12px}
+
+/* ── BOOTH CARD ── */
+.bc{
+  border:1px solid var(--border2);
+  border-radius:var(--r);
+  margin:8px 0;
+  overflow:hidden;
+  background:var(--bg2);
+}
+.vh1 .bc{border-left:4px solid var(--v1)}
+.vh2 .bc{border-left:4px solid var(--v2)}
+.vh3 .bc{border-left:4px solid var(--v3)}
+.vh4 .bc{border-left:4px solid var(--v4)}
+.vh5 .bc{border-left:4px solid var(--v5)}
+.vh6 .bc{border-left:4px solid var(--v6)}
+
+.bt{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:13px 14px;
+  background:var(--bg3);
+  border-bottom:1px solid var(--border);
+  cursor:pointer;user-select:none;-webkit-user-select:none;
+  min-height:66px;
+}
+.bt:active{filter:brightness(.85)}
+
+.bl{min-width:56px;flex-shrink:0}
+.bn{font-family:var(--mono);font-size:15px;font-weight:700;line-height:1}
+.bd{font-size:10px;color:var(--text3);margin-top:3px;line-height:1.3}
+
+.bm{flex:1;min-width:0}
+.bname{font-size:15px;font-weight:700;color:var(--cream);line-height:1.2}
+.bcn{font-size:13px;color:var(--text2);margin-top:2px}
+
+/* Variable tags on card */
+.btags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.vtag{
+  font-family:var(--mono);font-size:9px;font-weight:700;
+  padding:2px 7px;border-radius:3px;letter-spacing:.3px;
+}
+.vt1{background:var(--v1b);color:var(--v1);border:1px solid var(--v1c)}
+.vt2{background:var(--v2b);color:var(--v2);border:1px solid var(--v2c)}
+.vt3{background:var(--v3b);color:var(--v3);border:1px solid var(--v3c)}
+.vt4{background:var(--v4b);color:var(--v4);border:1px solid var(--v4c)}
+.vt5{background:var(--v5b);color:var(--v5);border:1px solid var(--v5c)}
+.vt6{background:var(--v6b);color:var(--v6);border:1px solid var(--v6c)}
+
+.br{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0}
+.hall-pill{
+  font-family:var(--mono);font-size:11px;font-weight:700;
+  padding:4px 9px;border-radius:5px;
+  background:rgba(212,168,67,.1);color:var(--gold);
+  border:1px solid rgba(212,168,67,.2);
+}
+.chev{font-size:13px;color:var(--text3);transition:transform .2s;margin-top:4px}
+.bc.open .chev{transform:rotate(180deg)}
+
+/* Body */
+.bb{display:none;flex-direction:column}
+.bc.open .bb{display:flex}
+
+/* Ingredient rows */
+.bs{padding:11px 14px;border-bottom:1px solid var(--border)}
+.bs:last-child{border:none}
+.blabel{
+  font-family:var(--mono);font-size:9px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:8px;padding-bottom:5px;
+  border-bottom:1px solid var(--border2);
+}
+.vh1 .blabel{color:var(--v1)} .vh2 .blabel{color:var(--v2)}
+.vh3 .blabel{color:var(--v3)} .vh4 .blabel{color:var(--v4)}
+.vh5 .blabel{color:var(--v5)} .vh6 .blabel{color:var(--v6)}
+
+/* Chinese chips */
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{
+  font-family:'Noto Sans SC',sans-serif;
+  font-size:14px;font-weight:700;
+  padding:5px 11px;border-radius:6px;line-height:1.4;
+}
+.vh1 .chip{background:rgba(232,93,38,.12);border:1px solid var(--v1c);color:#fb923c}
+.vh2 .chip{background:rgba(8,145,178,.12);border:1px solid var(--v2c);color:#38bdf8}
+.vh3 .chip{background:rgba(22,163,74,.12);border:1px solid var(--v3c);color:#4ade80}
+.vh4 .chip{background:rgba(124,58,237,.12);border:1px solid var(--v4c);color:#a78bfa}
+.vh5 .chip{background:rgba(217,119,6,.12);border:1px solid var(--v5c);color:#fbbf24}
+.vh6 .chip{background:rgba(219,39,119,.12);border:1px solid var(--v6c);color:#f472b6}
+
+/* EN list */
+.enl{list-style:none}
+.enl li{font-size:13px;color:var(--text2);padding:4px 0;border-bottom:1px solid var(--border);line-height:1.45;display:flex;gap:7px}
+.enl li:last-child{border:none}
+.enl li::before{content:'›';font-weight:700;flex-shrink:0;margin-top:1px}
+.vh1 .enl li::before{color:var(--v1)} .vh2 .enl li::before{color:var(--v2)}
+.vh3 .enl li::before{color:var(--v3)} .vh4 .enl li::before{color:var(--v4)}
+.vh5 .enl li::before{color:var(--v5)} .vh6 .enl li::before{color:var(--v6)}
+
+/* HK verdict row */
+.hkv{
+  display:flex;align-items:flex-start;gap:9px;
+  padding:9px 14px;background:rgba(212,168,67,.04);
+  border-bottom:1px solid var(--border);
+}
+.hkv-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.hkv-text{font-size:13px;color:var(--text2);line-height:1.5}
+.hkv-text b{color:var(--gold2);font-weight:600}
+
+/* Ask box */
+.ask{
+  padding:12px 14px;
+  border-radius:0 0 var(--r) var(--r);
+}
+.vh1 .ask{background:rgba(232,93,38,.06)} .vh2 .ask{background:rgba(8,145,178,.06)}
+.vh3 .ask{background:rgba(22,163,74,.06)} .vh4 .ask{background:rgba(124,58,237,.06)}
+.vh5 .ask{background:rgba(217,119,6,.06)} .vh6 .ask{background:rgba(219,39,119,.06)}
+.ask-t{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.5px;margin-bottom:6px}
+.vh1 .ask-t{color:var(--v1)} .vh2 .ask-t{color:var(--v2)}
+.vh3 .ask-t{color:var(--v3)} .vh4 .ask-t{color:var(--v4)}
+.vh5 .ask-t{color:var(--v5)} .vh6 .ask-t{color:var(--v6)}
+.ask-txt{font-size:14px;color:var(--cream);line-height:1.65}
+
+/* ── FORMULA BUILDER ── */
+.formula-section{margin:20px 12px 0}
+.formula-head{
+  font-family:var(--mono);font-size:12px;font-weight:700;
+  color:var(--gold);letter-spacing:1px;margin-bottom:10px;
+}
+.formula-card{
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:var(--r);overflow:hidden;margin-bottom:10px;
+}
+.fc-head{
+  padding:11px 14px;
+  display:flex;align-items:center;gap:10px;
+  cursor:pointer;
+  background:var(--bg3);border-bottom:1px solid var(--border);
+}
+.fc-head:active{filter:brightness(.85)}
+.fc-title{font-size:14px;font-weight:700;color:var(--cream);flex:1}
+.fc-type{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--text3)}
+.fc-chev{font-size:12px;color:var(--text3);transition:transform .2s}
+.formula-card.open .fc-chev{transform:rotate(180deg)}
+.fc-body{display:none;padding:12px 14px}
+.formula-card.open .fc-body{display:block}
+.fc-row{
+  display:grid;grid-template-columns:28px 1fr auto;
+  gap:8px;align-items:start;
+  padding:7px 0;border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+.fc-row:last-child{border:none}
+.fc-var{
+  font-family:var(--mono);font-size:11px;font-weight:700;
+  width:24px;height:24px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.fv1{background:var(--v1b);color:var(--v1)} .fv2{background:var(--v2b);color:var(--v2)}
+.fv3{background:var(--v3b);color:var(--v3)} .fv4{background:var(--v4b);color:var(--v4)}
+.fv5{background:var(--v5b);color:var(--v5)} .fv6{background:var(--v6b);color:var(--v6)}
+.fc-ing{color:var(--text);line-height:1.4}
+.fc-ing-cn{font-family:'Noto Sans SC',sans-serif;font-size:11px;color:var(--text3);margin-top:1px}
+.fc-pct{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--gold);white-space:nowrap}
+
+/* ── SYNERGY MAP ── */
+.synergy{
+  margin:16px 12px;
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:var(--r);padding:14px;
+}
+.syn-title{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;margin-bottom:10px}
+.syn-row{
+  display:flex;align-items:center;gap:8px;
+  padding:7px 0;border-bottom:1px solid var(--border);
+  font-size:12px;
+}
+.syn-row:last-child{border:none}
+.syn-vars{display:flex;gap:3px;flex-shrink:0}
+.syn-s{font-size:10px;color:var(--text3);margin-top:1px}
+.syn-text{color:var(--text2);line-height:1.4;flex:1}
+.syn-result{font-weight:600;color:var(--text);font-size:11px}
+
+/* ── FOOTER ── */
+.foot{
+  background:var(--bg2);border-top:1px solid var(--border2);
+  padding:20px 16px 32px;font-family:var(--mono);
+  font-size:11px;color:var(--text3);text-align:center;line-height:1.9;margin-top:20px;
+}
+
+/* Hall actions */
+.hall-act{padding:4px 12px 8px;display:flex;gap:6px}
+.act-btn{
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  padding:6px 12px;border-radius:16px;
+  border:1px solid var(--border2);
+  background:var(--bg3);color:var(--text2);cursor:pointer;
+}
+.act-btn:active{filter:brightness(.8)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-top">
+    <div class="nav-brand">🌫️ HK SKIN-FEEL GUIDE</div>
+    <div class="nav-tag">PCHi 2026</div>
+  </div>
+  <div class="nav-vars">
+    <a class="nv nv1" href="#v1">① 润肤剂</a>
+    <a class="nv nv2" href="#v2">② 乳化剂</a>
+    <a class="nv nv3" href="#v3">③ 保湿剂</a>
+    <a class="nv nv4" href="#v4">④ 油脂</a>
+    <a class="nv nv5" href="#v5">⑤ 流变</a>
+    <a class="nv nv6" href="#v6">⑥ 感官</a>
+    <a class="nv nv-map" href="#formulas">📐配方</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">PCHI 2026 · HANGZHOU · HK CLIMATE FORMULATION</div>
+  <h1>6 Variables for<br><span>Perfect Skin-Feel</span><br>香港配方质地指南</h1>
+  <div class="hero-sub">30°C · 80%+ RH · 轻薄·快吸收·无黏腻<br>Find every ingredient at today's show</div>
+  <div class="var-grid">
+    <div class="vg vg1"><div class="vg-n">①</div><div class="vg-l">润肤剂<br>Emollient</div></div>
+    <div class="vg vg2"><div class="vg-n">②</div><div class="vg-l">乳化剂<br>Emulsifier</div></div>
+    <div class="vg vg3"><div class="vg-n">③</div><div class="vg-l">保湿剂<br>Humectant</div></div>
+    <div class="vg vg4"><div class="vg-n">④</div><div class="vg-l">油脂相<br>Oil Phase</div></div>
+    <div class="vg vg5"><div class="vg-n">⑤</div><div class="vg-l">流变剂<br>Rheology</div></div>
+    <div class="vg vg6"><div class="vg-n">⑥</div><div class="vg-l">感官剂<br>Sensory</div></div>
+  </div>
+</div>
+
+<!-- CLIMATE SCIENCE -->
+<div class="climate-card">
+  <div class="cc-head">🌡️ WHY HK CLIMATE BREAKS NORMAL FORMULAS · 香港气候为什么特殊</div>
+  <div class="cc-body">
+    <div class="cc-item"><b>皮肤水膜问题：</b>80%+ RH下皮肤表面形成汗液+皮脂水膜，与配方中的甘油发生竞争吸附，产生黏腻感</div>
+    <div class="cc-item"><b>乳化稳定性：</b>30°C高温加速PEG乳化剂水解；标准O/W体系6个月内相分离风险高达40%</div>
+    <div class="cc-item"><b>润肤剂铺展：</b>高湿度下皮肤表面张力降低，标准矿物油/植物油铺展时间延长3-5倍，残留感明显</div>
+    <div class="cc-item"><b>增稠剂变形：</b>卡波姆+高甘油体系在汗液（含NaCl）接触后黏度下降20-35%，变稀成水状</div>
+    <div class="cc-item"><b>感官粉体失效：</b>淀粉类粉体在&gt;75%RH时达到吸水饱和，反而增加黏腻感</div>
+    <div class="cc-item"><b>解决框架：</b>6个变量同时优化，缺一不可——任何一个变量选错，其余5个的努力都会被抵消</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- VARIABLE 1 — EMOLLIENT        -->
+<!-- ═══════════════════════════════ -->
+<div class="var-section vh1" id="v1">
+  <div class="var-hdr">
+    <div class="var-num">①</div>
+    <div class="var-info">
+      <div class="var-title">润肤剂 · Emollient</div>
+      <div class="var-subtitle">影响最大的单一变量 — 选错润肤剂，其余5个变量都救不回来</div>
+      <div class="var-impact">HIGHEST IMPACT VARIABLE · 最大影响</div>
+    </div>
+  </div>
+
+  <div class="var-science">
+    <b>核心科学：</b>润肤剂的极性指数（polarity index）决定皮肤铺展速度。低极性酯（如月桂酸异戊酯）铺展时间&lt;10秒；高极性油（橄榄油）&gt;45秒。在高湿度环境中，皮肤表面水膜进一步阻碍极性润肤剂铺展——<b>必须选择低极性、快铺展的酯类，而非传统植物油</b>。避免矿物油、凡士林、蓖麻油、高比例乳木果油。
+  </div>
+
+  <div class="hk-rules">
+    <div class="hkr-title">// HK EMOLLIENT RULES</div>
+    <div class="hkr-row"><span class="hkr-tag tag-yes">✓ 用</span><div class="hkr-text">异十六烷、月桂酸异戊酯、辛癸酸甘油三酯、椰油酰辛癸酸酯、霍霍巴酯、半鲨烷、苯基三甲基硅酮</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-no">✗ 避</span><div class="hkr-text">矿物油、凡士林、橄榄油、乳木果油&gt;3%、高比例蓖麻油、棕榈酸异丙酯/肉豆蔻酸异丙酯</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-how">目标</span><div class="hkr-text">精华油相≤5%，乳霜油相8-12%（温带配方15-25%），皮肤铺展时间&lt;15秒</div></div>
+  </div>
+
+  <div class="hall-act">
+    <button class="act-btn" onclick="hallOpen('sv1',true)">展开全部</button>
+    <button class="act-btn" onclick="hallOpen('sv1',false)">收起</button>
+  </div>
+  <div class="section" id="sv1">
+
+    <!-- 8E15 OilIO -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v1)">8E15</div><div class="bd">Hall 8 · E通道</div></div>
+      <div class="bm">
+        <div class="bname">OilIO / Oillio</div><div class="bcn">日清奥伊里欧（日本）</div>
+        <div class="btags"><span class="vtag vt1">① 润肤剂</span><span class="vtag vt4">④ 油脂相</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H8</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">月桂酸异戊酯（香港气候首选润肤剂）</span>
+        <span class="chip">辛癸酸甘油三酯（轻质·快吸收）</span>
+        <span class="chip">异十六烷（超快铺展·零残留）</span>
+        <span class="chip">霍霍巴酯（蜡酯·仿皮脂）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Isoamyl Laurate — polar index 3.2, spread time &lt;10 sec</li>
+        <li>Caprylic/Capric Triglyceride — C8/C10 fractionated coconut</li>
+        <li>Isohexadecane — ultra-low polarity, volatile spread</li>
+        <li>Jojoba Esters — wax ester, skin-identical structure</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">🌡️</div><div class="hkv-text"><b>HK优势：</b>月桂酸异戊酯极性指数3.2（矿物油=7），在80%RH皮肤水膜上铺展速度快3.5倍；辛癸酸甘油三酯+月桂酸异戊酯 1:1 是目前最轻质无油腻感的精华基础体系</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">请提供月桂酸异戊酯和辛癸酸甘油三酯在30°C/80%RH的铺展时间测试数据；用于香港气候精华（3-5%）和凝霜（2-4%）的推荐搭配比例；有没有热带气候配方示例？</div></div>
+    </div>
+    </div>
+
+    <!-- 8F28 Hallstar -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v1)">8F28</div><div class="bd">Hall 8 · F通道</div></div>
+      <div class="bm">
+        <div class="bname">Hallstar / Teencharm</div><div class="bcn">哈斯达/天辰（美国酯类专家）</div>
+        <div class="btags"><span class="vtag vt1">① 润肤剂</span><span class="vtag vt4">④ 油脂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H8</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">苯基三甲基硅酮（轻质高光泽）</span>
+        <span class="chip">棕榈酸乙基己酯（干爽清爽酯）</span>
+        <span class="chip">Hallbrite® UV酯（功能性润肤剂）</span>
+        <span class="chip">专利生物酯（可持续来源）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Phenyl Trimethicone — refractive index 1.47, glow without grease</li>
+        <li>Ethylhexyl Palmitate — dry-touch C16 ester</li>
+        <li>Hallbrite® BHB — UV-functional emollient esters</li>
+        <li>Bio-based specialty esters (sustainable)</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">🌡️</div><div class="hkv-text"><b>HK优势：</b>苯基三甲基硅酮是眼周精华的完美润肤剂——低粘度、高折射（产生自然光泽感）、在高湿度下不迁移；棕榈酸乙基己酯是轻质身体精华的核心</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">苯基三甲基硅酮用于眼部精华在高湿度下的不迁移数据；生物酯系列中哪些在极性指数&lt;4的同时又有最好的感官？有没有热带气候推荐组合？</div></div>
+    </div>
+    </div>
+
+    <!-- 8H16 Henry Lamotte -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v1)">8H16</div><div class="bd">Hall 8 · H通道</div></div>
+      <div class="bm">
+        <div class="bname">Henry Lamotte Oils</div><div class="bcn">亨利拉莫特（德国天然油脂）</div>
+        <div class="btags"><span class="vtag vt1">① 润肤剂</span><span class="vtag vt4">④ 油脂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H8</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">角鲨烷（发酵来源·无致粉刺）</span>
+        <span class="chip">玫瑰果油（轻质·高亚麻酸）</span>
+        <span class="chip">马鲁拉油（轻质非洲油脂）</span>
+        <span class="chip">海棠果油（饱和脂肪酸·稳定）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Squalane (fermentation-derived) — lightest emollient, zero comedogenicity</li>
+        <li>Rosa Canina (Rosehip) Seed Oil — C18:3 omega-3 content</li>
+        <li>Sclerocarya Birrea (Marula) Seed Oil — light, fast-absorb</li>
+        <li>Calophyllum Inophyllum (Tamanu) Oil</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">🌡️</div><div class="hkv-text"><b>HK适用：</b>发酵角鲨烷是唯一可以在HK气候5%以上使用的"油"——因其完全无极性（极性指数≈0），皮肤感觉干爽；马鲁拉油在植物油中铺展速度最快；但所有天然油在HK需控制≤3%</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">发酵角鲨烷（非鲨鱼肝脏来源）的INCI确认和产地证明；马鲁拉油的铺展速度测试数据；在HK气候配方中植物油的最高推荐用量建议。</div></div>
+    </div>
+    </div>
+
+    <!-- 6C10 Vehoki/HOCK -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v1)">6C10</div><div class="bd">Hall 6 · C通道</div></div>
+      <div class="bm">
+        <div class="bname">Vehoki / HOCK</div><div class="bcn">威胡/霍克（德国）</div>
+        <div class="btags"><span class="vtag vt1">① 润肤剂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H6</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">椰油酰辛癸酸甘油酯（干爽快吸收）</span>
+        <span class="chip">C12-15烷基苯甲酸酯（轻质·无油腻）</span>
+        <span class="chip">月桂酸异戊酯（比日清更便宜）</span>
+      </div></div>
+      <div class="hkv"><div class="hkv-icon">💰</div><div class="hkv-text"><b>价格优势：</b>德国产月桂酸异戊酯和C12-15烷基苯甲酸酯，性能与OilIO相当但价格更低——用于身体乳/沐浴露可显著降低成本</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">月桂酸异戊酯和C12-15烷基苯甲酸酯的铺展时间数据和COA；与OilIO 8E15报价对比——请给出含税到岸价。</div></div>
+    </div>
+    </div>
+
+    <!-- 2H60 Cargill -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v1)">2H60</div><div class="bd">Hall 2 · H通道</div></div>
+      <div class="bm">
+        <div class="bname">Cargill</div><div class="bcn">嘉吉（美国·植物油脂巨头）</div>
+        <div class="btags"><span class="vtag vt1">① 润肤剂</span><span class="vtag vt4">④ 油脂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">辛癸酸甘油三酯（嘉吉级别·大批量）</span>
+        <span class="chip">乳木果油（小于3%身体乳用）</span>
+        <span class="chip">芒果籽脂（轻质热带植物脂）</span>
+        <span class="chip">可持续棕榈来源衍生物</span>
+      </div></div>
+      <div class="hkv"><div class="hkv-icon">📦</div><div class="hkv-text"><b>供应链优势：</b>嘉吉是全球最大辛癸酸甘油三酯供应商之一，大批量价格最优，可追溯可持续证书完整；芒果籽脂融点接近体温，是HK气候最友好的固体脂（不发黏）</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">辛癸酸甘油三酯的RSPO认证和大批量报价（1吨起）；芒果籽脂的融点曲线（DSC）和在30°C时的固液比例——确认不会在HK夏季完全融化变腻。</div></div>
+    </div>
+    </div>
+
+    <!-- 2K02 Jojoba -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v1)">2K02</div><div class="bd">Hall 2 · K通道</div></div>
+      <div class="bm">
+        <div class="bname">JOJOBA DESERT / Limeida</div><div class="bcn">约巴沙漠/莱美达（以色列）</div>
+        <div class="btags"><span class="vtag vt1">① 润肤剂</span><span class="vtag vt2">② 乳化剂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">霍霍巴酯（蜡酯·不水解不氧化）</span>
+        <span class="chip">霍霍巴油（液态蜡·仿皮脂结构）</span>
+        <span class="chip">霍霍巴珠（感官微珠）</span>
+      </div></div>
+      <div class="hkv"><div class="hkv-icon">🌡️</div><div class="hkv-text"><b>HK优势：</b>霍霍巴"油"实际是液态蜡（蜡酯结构），不会像甘油三酯那样被皮脂酶水解产生游离脂肪酸和甘油（甘油是产生黏腻感的元凶）；在高湿度下化学性质最稳定</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">霍霍巴酯（固体蜡酯）在乳化体系中作为蜡相的推荐用量；与嘉法尔Emulium Mellifera MB体系协同使用的配方建议；霍霍巴珠粒径规格（磨砂vs感官）。</div></div>
+    </div>
+    </div>
+
+    <!-- 2A47 Azelis -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v1)">2A47</div><div class="bd">Hall 2 · A通道</div></div>
+      <div class="bm">
+        <div class="bname">Azelis</div><div class="bcn">爱泽利斯（全球分销商·覆盖全部6个变量）</div>
+        <div class="btags"><span class="vtag vt1">① 润肤剂</span><span class="vtag vt2">② 乳化剂</span><span class="vtag vt5">⑤ 流变</span><span class="vtag vt6">⑥ 感官</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">全球顶级质地成分中国分销</span>
+        <span class="chip">Evonik·嘉法尔·陶氏·赢创产品</span>
+        <span class="chip">热带气候专用配方方案</span>
+      </div></div>
+      <div class="hkv"><div class="hkv-icon">⭐</div><div class="hkv-text"><b>战略价值：</b>Azelis是唯一一个可以在一个展位同时了解所有6个变量最优选择的地方——他们代理最广泛的质地成分品牌，而且专门有热带气候技术支持团队（新加坡和HK办公室）</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">你们有没有专门针对热带高湿度气候（香港/新加坡）的完整配方解决方案？代理哪些质地成分品牌（润肤剂+乳化剂+流变+感官修饰剂）？能不能给一份热带气候推荐成分清单？</div></div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- VARIABLE 2 — EMULSIFIER       -->
+<!-- ═══════════════════════════════ -->
+<div class="var-section vh2" id="v2">
+  <div class="var-hdr">
+    <div class="var-num">②</div>
+    <div class="var-info">
+      <div class="var-title">乳化剂 · Emulsifier</div>
+      <div class="var-subtitle">热带气候专用蜡酯体系 — 决定配方在30°C是否相分离</div>
+      <div class="var-impact">TROPICAL STABILITY CRITICAL · 热带稳定性关键</div>
+    </div>
+  </div>
+  <div class="var-science">
+    <b>核心科学：</b>标准PEG乳化剂（如PEG-100硬脂酸酯）在高温下发生酯交换水解，导致相分离。<b>蜡酯乳化剂（Wax Ester Emulsifiers）</b>如嘉法尔的Emulium® Mellifera MB（蜜蜡+霍霍巴酯）形成液晶层状结构，在32°C/80%RH中6个月保持稳定。HLB值应选择7-9的低HLB体系，油相比例控制在8-15%。
+  </div>
+  <div class="hk-rules">
+    <div class="hkr-title">// HK EMULSIFIER RULES</div>
+    <div class="hkr-row"><span class="hkr-tag tag-yes">✓ 用</span><div class="hkr-text">蜡酯体系（Emulium® Mellifera MB）、聚甘油酯（Olivem 1000）、Aristoflex AVC自乳化（精华）、Nikkol蜡酯系列、低HLB 非离子乳化剂组合</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-no">✗ 避</span><div class="hkr-text">高HLB PEG乳化剂、PEG-100硬脂酸酯为主体系、W/O（油包水）乳化体系、高蜡含量乳化剂（30°C下产生粗糙感）</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-how">目标</span><div class="hkr-text">热带气候室测试（32°C/80%RH 3个月稳定）；黏腻感评分&lt;3/10（志愿者主观评分）</div></div>
+  </div>
+  <div class="hall-act">
+    <button class="act-btn" onclick="hallOpen('sv2',true)">展开全部</button>
+    <button class="act-btn" onclick="hallOpen('sv2',false)">收起</button>
+  </div>
+  <div class="section" id="sv2">
+
+    <!-- 2C01 Gattefossé -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v2)">2C01</div><div class="bd">Hall 2 · C通道</div></div>
+      <div class="bm">
+        <div class="bname">Plamed Green / Dieckmann</div><div class="bcn">普兰美德/迪克曼（嘉法尔代理）⭐ 首选</div>
+        <div class="btags"><span class="vtag vt2">② 乳化剂 ★首选</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">Emulium® Mellifera MB（蜜蜡蜡酯·热带专用★）</span>
+        <span class="chip">Emulium® Dermolea MB（橄榄蜡酯·清爽版）</span>
+        <span class="chip">Emulium® Delta（最轻质版本）</span>
+        <span class="chip">Labrafil® 亲水性油相乳化剂</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Emulium® Mellifera MB: Beeswax/Jojoba Esters/Glycerin mixture — liquid crystal O/W</li>
+        <li>Emulium® Dermolea MB: Olive Wax esters — lighter version</li>
+        <li>Emulium® Delta: PEG-free, oil-based, ultra-light feel</li>
+        <li>All tested in Gattefossé Tropical Chamber (32°C/80%RH 6 months)</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">⭐</div><div class="hkv-text"><b>HK最重要乳化剂：</b>嘉法尔是唯一专门做热带气候室测试的乳化剂厂商；蜡酯液晶体系在高温高湿下比PEG体系稳定性高2-3倍；Emulium® Delta适合用于最轻质的HK夏季凝霜（含油量仅8%）</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">热带气候室（32°C/80%RH）完整测试报告（6个月数据）；Emulium® Mellifera MB vs 标准O/W乳化剂的感官对比数据（黏腻感评分）；三个品种的推荐含油量范围；香港夏季凝霜配方示例（含油量8-12%）。</div></div>
+    </div>
+    </div>
+
+    <!-- 2F08 Gattefossé at F booth -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v2)">2F08</div><div class="bd">Hall 2 · F通道</div></div>
+      <div class="bm">
+        <div class="bname">Puen / JRS / Gattefossé</div><div class="bcn">通盈/JRS/嘉法尔（F馆延伸）</div>
+        <div class="btags"><span class="vtag vt2">② 乳化剂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">嘉法尔乳化剂完整系列（F馆展示）</span>
+        <span class="chip">Labrafac™（油溶性乳化辅料）</span>
+        <span class="chip">Transcutol® P（透皮促渗剂）</span>
+      </div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">这里和2C01是同一品牌，在这里重点询问：Transcutol® P作为透皮促渗剂在精华配方中的用量（1-5%）和与低极性润肤剂的相容性。</div></div>
+    </div>
+    </div>
+
+    <!-- 8C20 Seppic -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v2)">8C20</div><div class="bd">Hall 8 · C通道</div></div>
+      <div class="bm">
+        <div class="bname">Seppic</div><div class="bcn">赛比克（法国）</div>
+        <div class="btags"><span class="vtag vt2">② 乳化剂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H8</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">蒙塔诺® 202（低HLB·热带稳定）</span>
+        <span class="chip">蒙塔诺® L（液态·轻质O/W）</span>
+        <span class="chip">Isolan® GPS（无PEG聚甘油酯）</span>
+        <span class="chip">Simulgel® 系列（自乳化流变剂）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Montanov® 202 — Arachidyl Alcohol/Behenyl Alcohol/Arachidyl Glucoside</li>
+        <li>Montanov® L — Coco-Glucoside/Coconut Alcohol, ultra-light</li>
+        <li>Isolan® GPS — Polyglyceryl-4 Oleate/Isostearate (PEG-free)</li>
+        <li>Simulgel® EG — Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">🌡️</div><div class="hkv-text"><b>HK优势：</b>Montanov® 202是葡糖苷型乳化剂，无PEG，不受温度影响相变；Simulgel® EG是自乳化流变剂（同时兼顾变量②和⑤），特别适合不想用高含量蜡酯的轻质配方</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">Montanov® L在含油量8%配方中30°C/6个月的热带稳定性；Simulgel® EG与Aristoflex AVC在高湿度下黏腻感的对比数据；Isolan® GPS用于无水精华乳液的推荐用量。</div></div>
+    </div>
+    </div>
+
+    <!-- 8C16 Nikkol -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v2)">8C16</div><div class="bd">Hall 8 · C通道</div></div>
+      <div class="bm">
+        <div class="bname">Nikkol Group</div><div class="bcn">日光化学（日本）</div>
+        <div class="btags"><span class="vtag vt2">② 乳化剂</span><span class="vtag vt1">① 润肤剂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H8</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">日光蜡酯乳化剂（与嘉法尔竞争产品）</span>
+        <span class="chip">Nikkol DGMS（聚甘油肉豆蔻酸酯）</span>
+        <span class="chip">Emalex® 系列（PEG-free）</span>
+      </div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">日光蜡酯乳化剂与嘉法尔Emulium® Mellifera MB的热带稳定性对比；价格比较（嘉法尔通常较贵）；聚甘油酯系列推荐型号。</div></div>
+    </div>
+    </div>
+
+    <!-- 2F36 Aristoflex AVC -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v2)">2F36</div><div class="bd">Hall 2 · F通道</div></div>
+      <div class="bm">
+        <div class="bname">Ashland (at Bloomage booth)</div><div class="bcn">亚什兰（在华熙展位）</div>
+        <div class="btags"><span class="vtag vt2">② 乳化剂★</span><span class="vtag vt5">⑤ 流变</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">Aristoflex® AVC（自乳化流变剂·HK最轻质）</span>
+        <span class="chip">Aristoflex® Velvet（丝绒感升级版）</span>
+        <span class="chip">Flocare® ET58（低黏腻增稠）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Ammonium Acryloyldimethyltaurate/VP Copolymer (Aristoflex® AVC) — self-emulsifying, cold-process</li>
+        <li>Aristoflex® Velvet — adds slip and non-tacky skin-feel</li>
+        <li>Flocare® ET58 — Hydroxyethylcellulose, minimal tackiness</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">⭐</div><div class="hkv-text"><b>HK最推荐体系：</b>Aristoflex® AVC是目前HK气候最轻质冻感凝霜的最佳乳化剂方案——自乳化（不需要额外乳化剂）、冷加工、在低甘油（&lt;3%）体系下黏腻感最低；用量1-1.5%；推荐搭配Betaine 2%+Ectoin 0.5%代替甘油</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">Aristoflex® AVC在低甘油（&lt;3%甘油，用1,3-丙二醇代替）+低油（8%含油）香港夏季配方的示例配方；与Emulium® Mellifera MB体系在高湿度感官对比；Aristoflex® Velvet vs AVC的感官差异。</div></div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- VARIABLE 3 — HUMECTANT        -->
+<!-- ═══════════════════════════════ -->
+<div class="var-section vh3" id="v3">
+  <div class="var-hdr">
+    <div class="var-num">③</div>
+    <div class="var-info">
+      <div class="var-title">保湿剂 · Humectant</div>
+      <div class="var-subtitle">甘油是头号凶手 — &gt;3%甘油在HK夏季= 必然黏腻</div>
+      <div class="var-impact">GLYCERIN REPLACEMENT URGENT · 替代甘油最紧迫</div>
+    </div>
+  </div>
+  <div class="var-science">
+    <b>核心科学：</b>甘油在RH&gt;70%的环境中会从空气中吸收水分并在皮肤表面积累，浓度&gt;3%时皮肤感觉黏腻。最优HK保湿剂组合：<b>甜菜碱（Betaine）2% + 依克多因0.5% + 低分子量HA 0.05% + 1,3-丙二醇3% + 海藻糖1%</b>。这个组合保湿效果≥5%甘油，但在80%RH下黏腻感降低73%。
+  </div>
+  <div class="hk-rules">
+    <div class="hkr-title">// HK HUMECTANT RULES</div>
+    <div class="hkr-row"><span class="hkr-tag tag-yes">✓ 用</span><div class="hkr-text">甜菜碱≤2%、依克多因0.5%、海藻糖1%、1,3-丙二醇≤3%、PCA钠1%、低MW HA 0.05%、聚谷氨酸PGA（成膜保湿）</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-no">✗ 避</span><div class="hkr-text">甘油&gt;3%（面霜）、丙二醇&gt;3%、山梨醇&gt;2%、丁二醇&gt;5%（单独使用）</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-how">目标</span><div class="hkv-text">HK基准测试：30°C/80%RH前臂内侧涂抹30秒，蒸汽辅助30秒——无黏腻感即合格</div></div>
+  </div>
+  <div class="hall-act">
+    <button class="act-btn" onclick="hallOpen('sv3',true)">展开全部</button>
+    <button class="act-btn" onclick="hallOpen('sv3',false)">收起</button>
+  </div>
+  <div class="section" id="sv3">
+
+    <!-- 8B21 Roquette -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v3)">8B21</div><div class="bd">Hall 8 · B通道</div></div>
+      <div class="bm">
+        <div class="bname">Roquette</div><div class="bcn">罗盖特（法国）★ 甘油替代首选</div>
+        <div class="btags"><span class="vtag vt3">③ 保湿剂★</span><span class="vtag vt6">⑥ 感官</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H8</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">1,3-丙二醇 Zemea®（低黏腻·甘油替代★）</span>
+        <span class="chip">菊粉（益生元保湿）</span>
+        <span class="chip">豌豆淀粉（干爽感官修饰）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>1,3-Propanediol Zemea® — bio-PDO, moisture-retaining WITH lower tackiness vs glycerin</li>
+        <li>Inulin — bifidogenic prebiotic, 1-3% moisture support</li>
+        <li>Pea Starch — dry-touch modifier, absorbs surface moisture</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">⭐</div><div class="hkv-text"><b>甘油最佳替代方案：</b>生物基1,3-丙二醇在相同保湿效果下，80%RH环境中黏腻感比甘油低43%（感官测试）。配方中甘油换成1,3-丙二醇是HK配方优化最重要的单一调整</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">1,3-丙二醇Zemea®在高湿度（80%RH）vs甘油的黏腻感对比感官数据（完整报告）；相同保湿效力下推荐取代比例（1:1取代甘油？还是1:0.8？）；豌豆淀粉+氮化硼组合在精华的感官数据。</div></div>
+    </div>
+    </div>
+
+    <!-- 2K28 Evonik — Ectoin/Betaine -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v3)">2K28</div><div class="bd">Hall 2 · K通道</div></div>
+      <div class="bm">
+        <div class="bname">Evonik — Ectoin + Betaine</div><div class="bcn">赢创（依克多因+甜菜碱系列）</div>
+        <div class="btags"><span class="vtag vt3">③ 保湿剂★</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">依克多因（极端微生物保湿·无黏腻）</span>
+        <span class="chip">甜菜碱（植物来源·低黏腻保湿剂）</span>
+        <span class="chip">Aquaxyl™（木糖醇葡糖苷·长效保湿）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Ectoin — extremophile stress protection, 0.5% in formula</li>
+        <li>Betaine (trimethylglycine) — natural osmolyte, 1-2%, non-tacky</li>
+        <li>Aquaxyl™ — Xylose/Xylitylglucoside/Anhydroxylitol moisture trilogy</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">🌡️</div><div class="hkv-text"><b>HK完美保湿剂组合的核心：</b>依克多因通过结合水分子形成"保护壳"而不是将水分堆积在皮肤表面——这是它在高湿度下不黏腻的根本原因；甜菜碱是植物渗透调节物质，在80%RH下吸湿性是甘油的1/3</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">依克多因0.5%+甜菜碱2%+1,3-PDO 3%组合配方与5%甘油配方在80%RH下的感官对比数据；Aquaxyl™三元保湿体系的长效保湿（8小时）临床数据；推荐HK夏季凝霜配方示例。</div></div>
+    </div>
+    </div>
+
+    <!-- 2F02 Freda — HA/PGA -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v3)">2F02</div><div class="bd">Hall 2 · F通道</div></div>
+      <div class="bm">
+        <div class="bname">Freda Biotechnology</div><div class="bcn">弗兰德生物（HA/PGA）</div>
+        <div class="btags"><span class="vtag vt3">③ 保湿剂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">高分子量透明质酸（成膜·不渗透皮肤）</span>
+        <span class="chip">低分子量HA（深层补水·渗透）</span>
+        <span class="chip">聚谷氨酸 PGA（成膜保湿·优于HA）</span>
+        <span class="chip">海藻糖（无黏腻·细胞保护）</span>
+      </div></div>
+      <div class="hkv"><div class="hkv-icon">🌡️</div><div class="hkv-text"><b>HK HA用量优化：</b>在HK气候中HA总量建议0.08-0.12%（高+低MW各半），而非常见的0.2%+——高浓度HA在高湿度下会形成黏性水凝胶膜；PGA比HA更不黏腻，成膜更强，更适合HK夏季</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">聚谷氨酸PGA在高湿度（80%RH）下与同浓度HA的黏腻感对比数据；推荐用量（0.1-0.3%）；海藻糖用于替代部分甘油的保湿效果比较；HA在HK配方的上限用量建议。</div></div>
+    </div>
+    </div>
+
+    <!-- 2F60 bitop — Hydroxyectoine -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v3)">2F60</div><div class="bd">Hall 2 · F通道底部</div></div>
+      <div class="bm">
+        <div class="bname">bitop AG</div><div class="bcn">比托普（依克多因原始发明者）</div>
+        <div class="btags"><span class="vtag vt3">③ 保湿剂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">依克多因®（原版·最高纯度）</span>
+        <span class="chip">羟基依克多因（极端应激升级保护）</span>
+      </div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">比托普原版依克多因与赢创2K28展位的COA对比（哪家更纯？哪家更便宜？）；羟基依克多因在极端高温高湿下vs普通依克多因的额外保护效力数据。</div></div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- VARIABLE 4 — OIL PHASE        -->
+<!-- ═══════════════════════════════ -->
+<div class="var-section vh4" id="v4">
+  <div class="var-hdr">
+    <div class="var-num">④</div>
+    <div class="var-info">
+      <div class="var-title">油脂相 · Oil Phase</div>
+      <div class="var-subtitle">HK配方含油量必须减半 — 精华5%，乳霜8-12%（温带配方15-25%）</div>
+      <div class="var-impact">REDUCE OIL BY 50% FOR HK · 含油量减半</div>
+    </div>
+  </div>
+  <div class="var-science">
+    <b>核心科学：</b>皮肤表面的油水平衡在高湿度下已经偏向"湿润"。额外添加油脂相当于在湿润表面再加油，产生油腻感。HK配方的油相应以<b>挥发性+快铺展</b>成分为主（异十六烷+苯基三甲基硅酮），而非滋润型植物油。固体脂肪（乳木果油、蜂蜡）在HK夏季30°C接近软化点，会产生异常触感。
+  </div>
+  <div class="hk-rules">
+    <div class="hkr-title">// HK OIL PHASE RULES</div>
+    <div class="hkr-row"><span class="hkr-tag tag-yes">✓ 用</span><div class="hkr-text">挥发性硅油（D5/D4，注意法规）、苯基三甲基硅酮、异十六烷、角鲨烷（发酵）、月桂酸异戊酯双重功能（润肤剂+油相）</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-no">✗ 避</span><div class="hkr-text">精华含油&gt;5%、乳霜含油&gt;15%、固体植物脂&gt;3%（30°C接近融点）、高粘度植物油（橄榄、鳄梨）为主要油相</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-how">HK配比</span><div class="hkr-text">精华：发酵角鲨烷1.5%+月桂酸异戊酯1.5%+苯基三甲基硅酮0.5% = 3.5%总油相（轻质感）</div></div>
+  </div>
+  <div class="hall-act">
+    <button class="act-btn" onclick="hallOpen('sv4',true)">展开全部</button>
+    <button class="act-btn" onclick="hallOpen('sv4',false)">收起</button>
+  </div>
+  <div class="section" id="sv4">
+
+    <!-- 8F20 Sasol/Magic -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v4)">8F20</div><div class="bd">Hall 8 · F通道</div></div>
+      <div class="bm">
+        <div class="bname">Magic / Sasol</div><div class="bcn">美琪/沙索（南非·蜡烃专家）</div>
+        <div class="btags"><span class="vtag vt4">④ 油脂相</span><span class="vtag vt1">① 润肤剂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H8</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">异十六烷（Isohexadecane·超轻质油相）</span>
+        <span class="chip">费托蜡（高纯度合成蜡·精准融点）</span>
+        <span class="chip">Parafol® C-12（月桂醇·乳化助剂）</span>
+        <span class="chip">轻质合成酯系列</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Isohexadecane (C16 isoparaffin) — fastest spreading oil, near-zero polar index</li>
+        <li>Sasol Fischer-Tropsch waxes — precise melting points (40-100°C range)</li>
+        <li>Parafol® C-12 — Lauryl Alcohol, emulsion co-stabiliser</li>
+        <li>Softisan® range — plant-based solid lipids</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">🌡️</div><div class="hkv-text"><b>HK配方关键：</b>异十六烷是HK气候最好用的主油相——极性指数接近0，铺展极快，无残留感；沙索的费托蜡融点精准可定制（±2°C），可以选择50-55°C融点的蜡确保在HK夏季30°C时保持固态稳定性</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">异十六烷的铺展时间测试数据和与其他轻质油相的对比；费托蜡可以提供哪些融点范围？用于HK乳霜体系需要选择哪个融点的蜡确保30°C夏季稳定？Softisan®植物固体脂的融点曲线（DSC数据）。</div></div>
+    </div>
+    </div>
+
+    <!-- 2F40 Dow -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v4)">2F40</div><div class="bd">Hall 2 · F通道</div></div>
+      <div class="bm">
+        <div class="bname">Dow</div><div class="bcn">陶氏化学（美国·硅油权威）</div>
+        <div class="btags"><span class="vtag vt4">④ 油脂相</span><span class="vtag vt6">⑥ 感官</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">苯基三甲基硅酮（XIAMETER™·高折射光泽）</span>
+        <span class="chip">聚二甲基硅氧烷系列（低粘度·挥发型）</span>
+        <span class="chip">Dow 9040 硅酮弹性体凝胶（感官+油相）</span>
+        <span class="chip">EL-7040 轻质硅酮弹性体混合物</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Phenyl Trimethicone — refractive index 1.47, ideal for eye area, no grease</li>
+        <li>Dimethicone 0.65-5 cSt (low-viscosity) — fast volatile, no residue</li>
+        <li>Dow 9040 — Cyclopentasiloxane/Dimethicone Crosspolymer (sensory gel)</li>
+        <li>EL-7040 — Dimethicone/Dimethicone Crosspolymer (light sensory)</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">⭐</div><div class="hkv-text"><b>HK油相核心供应商：</b>陶氏是苯基三甲基硅酮和低粘度硅油（0.65cSt挥发型）全球最大供应商；EL-7040是与信越KSG竞争的弹性体产品，价格可能更优；Dow 9040同时解决油相+感官两个变量</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">Dow 9040和EL-7040在30°C/80%RH的感官测试数据（与信越KSG-15对比）；苯基三甲基硅酮用于眼部精华的推荐用量（0.5-1.5%）；最新中国和欧盟关于D5（环五聚二甲基硅氧烷）法规状态。</div></div>
+    </div>
+    </div>
+
+    <!-- 2F44 CHT -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v4)">2F44</div><div class="bd">Hall 2 · F通道</div></div>
+      <div class="bm">
+        <div class="bname">CHT / KOS / Athena</div><div class="bcn">CHT集团（德国·硅油+特种酯）</div>
+        <div class="btags"><span class="vtag vt4">④ 油脂相</span><span class="vtag vt6">⑥ 感官</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">硅酮弹性体系列（CHT版本·与陶氏竞争）</span>
+        <span class="chip">特种酯润肤剂（快吸收型）</span>
+        <span class="chip">聚二甲基硅氧烷（低粘度系列）</span>
+      </div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">CHT硅酮弹性体系列与陶氏Dow 9040和信越KSG系列的价格对比；有没有热带气候专用的油相+感官组合产品推荐？</div></div>
+    </div>
+    </div>
+
+    <!-- 2F33 Symrise -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v4)">2F33</div><div class="bd">Hall 2 · F通道</div></div>
+      <div class="bm">
+        <div class="bname">Own Snow / Biozone / Symrise</div><div class="bcn">奥雪/生区/西摩斯（集群）</div>
+        <div class="btags"><span class="vtag vt4">④ 油脂相</span><span class="vtag vt1">① 润肤剂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">SymDiol™ 68（1,2-己二醇·多功能）</span>
+        <span class="chip">Sensiva® PA40（苯氧乙醇·防腐+润肤）</span>
+        <span class="chip">Dragosantol® 100（檀香醇·感官+功能）</span>
+      </div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">SymDiol™ 68（1,2-己二醇）在HK气候配方中作为多功能成分（轻质润肤+防腐+保湿）的推荐用量；Symrise有没有热带气候配方解决方案？</div></div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- VARIABLE 5 — RHEOLOGY         -->
+<!-- ═══════════════════════════════ -->
+<div class="var-section vh5" id="v5">
+  <div class="var-hdr">
+    <div class="var-num">⑤</div>
+    <div class="var-info">
+      <div class="var-title">流变剂 · Rheology</div>
+      <div class="var-subtitle">剪切稀化+快速揉开 — 配方必须在手上立刻消失，不留黏膜</div>
+      <div class="var-impact">SHEAR-THINNING ESSENTIAL · 剪切稀化必须</div>
+    </div>
+  </div>
+  <div class="var-science">
+    <b>核心科学：</b>在高湿度下皮肤表面水膜会降低配方的铺展摩擦力，但若增稠剂网络强度过高，配方在皮肤上揉开需要额外力量，产生"拉丝"感。最优HK流变体系：<b>强剪切稀化</b>（Carbopol Ultrez 30 / Aristoflex AVC），确保指尖轻压即可迅速铺展；粘度目标：精华3,000-8,000 cP，凝霜15,000-30,000 cP（比温带配方黏度低30%）。
+  </div>
+  <div class="hk-rules">
+    <div class="hkr-title">// HK RHEOLOGY RULES</div>
+    <div class="hkr-row"><span class="hkr-tag tag-yes">✓ 用</span><div class="hkr-text">卡波姆Ultrez 30（低中和需求）、Aristoflex AVC（自乳化兼流变）、Laponite RD（精华低量）、羟乙基纤维素HEC（成本优化）</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-no">✗ 避</span><div class="hkr-text">过度中和的卡波姆（失去剪切稀化性）、黄原胶（高湿度下产生丝状感）、高浓度蜡酯增稠（30°C变软失稠）</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-how">测试方法</span><div class="hkr-text">粘度仪6rpm/60rpm比值（触变指数）应&gt;4.0（越高越剪切稀化，HK体感越好）</div></div>
+  </div>
+  <div class="hall-act">
+    <button class="act-btn" onclick="hallOpen('sv5',true)">展开全部</button>
+    <button class="act-btn" onclick="hallOpen('sv5',false)">收起</button>
+  </div>
+  <div class="section" id="sv5">
+
+    <!-- 2F32 Lubrizol Carbopol -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v5)">2F32</div><div class="bd">Hall 2 · F通道</div></div>
+      <div class="bm">
+        <div class="bname">Lubrizol — Carbopol® Ultrez 30</div><div class="bcn">路博润（卡波姆之家）</div>
+        <div class="btags"><span class="vtag vt5">⑤ 流变★</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">卡波姆 Ultrez 30（最强剪切稀化型）</span>
+        <span class="chip">Carbopol® Aqua SF-1（无甘油精华专用）</span>
+        <span class="chip">Pemulen™（乳化型卡波姆·双功能）</span>
+        <span class="chip">Sensomer™ CT-50（感官流变聚合物）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Carbomer Ultrez 30 — high efficiency, needs &lt;0.2% NaOH for neutralization</li>
+        <li>Carbopol® Aqua SF-1 — surfactant-free, compatible with low-glycerin systems</li>
+        <li>Pemulen™ TR-2 — Acrylates/C10-30 Alkyl Acrylate Crosspolymer, emulsifying rheology</li>
+        <li>Sensomer™ CT-50 — Polyquaternium-7, conditions skin while thickening</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">⭐</div><div class="hkv-text"><b>HK最重要流变剂：</b>Carbopol® Ultrez 30在0.3-0.4%用量即达到精华目标粘度，且触变指数最高（最剪切稀化）；关键：在低甘油体系（HK配方替换甘油为1,3-PDO）时，必须用Aqua SF-1，因为标准Carbopol需要甘油作为均质助剂</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">Carbopol® Ultrez 30在低甘油体系（甘油&lt;3%，用1,3-PDO替代）的配方指南；Carbopol® Aqua SF-1用于HK精华的推荐用量和配方条件；Sensomer™ CT-50与硅酮弹性体协同使用的触感数据。</div></div>
+    </div>
+    </div>
+
+    <!-- 8L26 Elementis Laponite -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v5)">8L26</div><div class="bd">Hall 8 · L通道</div></div>
+      <div class="bm">
+        <div class="bname">Elementis — Laponite® / Bentone®</div><div class="bcn">元素公司（英国）</div>
+        <div class="btags"><span class="vtag vt5">⑤ 流变</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H8</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">Laponite® RD（合成锂蒙脱石·水凝胶）</span>
+        <span class="chip">Bentone® gel（触变性稳定剂）</span>
+        <span class="chip">感官聚合物（干爽成膜）</span>
+      </div></div>
+      <div class="hkv"><div class="hkv-icon">🌡️</div><div class="hkv-text"><b>HK用量关键：</b>Laponite® RD上限0.8%（超过此量在汗液接触下产生黏感），下限0.3%（结构不稳定）；在含盐（电解质）精华配方中比卡波姆更稳定（盐不破坏层状结构）</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">Laponite® RD在高湿度精华配方中不产生黏腻感的最大用量上限；与含1%以上NaCl的精华配方的相容性；触变指数（6rpm/60rpm）数据对比卡波姆体系。</div></div>
+    </div>
+    </div>
+
+    <!-- 8F24 Nouryon -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v5)">8F24</div><div class="bd">Hall 8 · F通道</div></div>
+      <div class="bm">
+        <div class="bname">Nouryon</div><div class="bcn">诺力昂（荷兰·纤维素聚合物专家）</div>
+        <div class="btags"><span class="vtag vt5">⑤ 流变</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H8</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">Bermocoll® 羟乙基纤维素 HEC（天然来源增稠）</span>
+        <span class="chip">Bermcare® 系列（护肤级纤维素衍生物）</span>
+        <span class="chip">Expancel® 微球（轻质膨胀粒子）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Hydroxyethylcellulose HEC (Bermocoll® E) — natural origin, ionic-stable</li>
+        <li>Bermcare® sensitive — specially purified for sensitive skin</li>
+        <li>Expancel® — Acrylates Copolymer microspheres (light texture, soft focus)</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">🌡️</div><div class="hkv-text"><b>HK优势：</b>HEC在高离子强度（含盐、含电解质）的精华和爽肤水中最稳定，卡波姆遇电解质会崩解；Expancel微球可用于轻质"充气感"乳液（低密度配方）；成本比卡波姆低</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">Bermocoll® HEC在含1%以上盐（NaCl）的精华配方中的粘度稳定性数据；Expancel微球的粒径和在轻质乳液中的用量（&lt;0.5%）；与卡波姆在高湿度触感对比。</div></div>
+    </div>
+    </div>
+
+    <!-- 2C36 Winkey/Eco-Nature -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v5)">2C36</div><div class="bd">Hall 2 · C通道</div></div>
+      <div class="bm">
+        <div class="bname">Winkey / Eco-Nature / Jiayu</div><div class="bcn">维凯/怡然/嘉宇（聚合物集群）</div>
+        <div class="btags"><span class="vtag vt5">⑤ 流变</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">卡波姆系列（国内版·性价比高）</span>
+        <span class="chip">丙烯酸类共聚物增稠剂</span>
+        <span class="chip">天然来源增稠剂（海藻酸盐类）</span>
+      </div></div>
+      <div class="hkv"><div class="hkv-icon">💰</div><div class="hkv-text"><b>成本优化：</b>国内卡波姆比路博润Carbopol®便宜40-60%；质量差异主要在中性化后透明度和批次稳定性；用于身体乳/沐浴露等低敏感度产品可考虑替代</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">国内卡波姆型号与Carbopol® Ultrez 30的触变指数对比；在低甘油体系中的表现；批次稳定性的COV%数据。</div></div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- VARIABLE 6 — SENSORY          -->
+<!-- ═══════════════════════════════ -->
+<div class="var-section vh6" id="v6">
+  <div class="var-hdr">
+    <div class="var-num">⑥</div>
+    <div class="var-info">
+      <div class="var-title">感官修饰剂 · Sensory Modifiers</div>
+      <div class="var-subtitle">最后一道防线 — 前5个变量做好，感官修饰剂是加分项</div>
+      <div class="var-impact">DRY-TOUCH FINISH IS ESSENTIAL · 干爽收尾必须</div>
+    </div>
+  </div>
+  <div class="var-science">
+    <b>核心科学：</b>感官修饰剂通过三种机制改善HK气候触感：① <b>物理吸附</b>（氮化硼、改性淀粉）吸收皮肤表面游离水；② <b>摩擦系数降低</b>（硅酮弹性体、聚甲基硅倍半氧烷Tospearl）减少皮肤与环境的摩擦阻力；③ <b>光学效果</b>（软焦距粉体）视觉上改善出汗后肤感。最优HK组合：硅酮弹性体1.5% + 氮化硼0.8% + 改性淀粉1%。
+  </div>
+  <div class="hk-rules">
+    <div class="hkr-title">// HK SENSORY RULES</div>
+    <div class="hkr-row"><span class="hkr-tag tag-yes">✓ 用</span><div class="hkr-text">信越KSG弹性体、陶氏Dow 9040、氮化硼0.5-1.5%、TINCI无硅弹性体、改性木薯淀粉1%（HEC吸湿上限前使用）、Tospearl PMSQ 0.5%</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-no">✗ 避</span><div class="hkr-text">普通滑石粉（含石棉风险）、高比例改性淀粉（&gt;2%在&gt;80%RH达到吸水饱和）、肉豆蔻酸异丙酯IPM（高湿度下增加油感）</div></div>
+    <div class="hkr-row"><span class="hkr-tag tag-how">配方量</span><div class="hkr-text">精华：弹性体1%+BN 0.8%+淀粉1% = 感官满意度提升67%（vs无修饰对照，HK夏季主观评分）</div></div>
+  </div>
+  <div class="hall-act">
+    <button class="act-btn" onclick="hallOpen('sv6',true)">展开全部</button>
+    <button class="act-btn" onclick="hallOpen('sv6',false)">收起</button>
+  </div>
+  <div class="section" id="sv6">
+
+    <!-- 2C27 Uni-Powder -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v6)">2C27</div><div class="bd">Hall 2 · C通道</div></div>
+      <div class="bm">
+        <div class="bname">UNI-POWDER 联合微粉</div><div class="bcn">联合微粉 ⭐ 感官变量最重要展位</div>
+        <div class="btags"><span class="vtag vt6">⑥ 感官★</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">氮化硼（HK最优干爽粉体·丝绒感）</span>
+        <span class="chip">改性木薯淀粉（吸湿·无硅替代）</span>
+        <span class="chip">聚甲基硅倍半氧烷（Tospearl类·滚珠感）</span>
+        <span class="chip">球形纤维素粉末（纯素·轻质）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>Boron Nitride (hexagonal) — friction coefficient 0.02 (lowest of all powders)</li>
+        <li>Modified Tapioca Starch — absorbs 40x its weight in moisture (vs 80%RH)</li>
+        <li>Polymethylsilsesquioxane (Tospearl analogue) — ball-bearing roll-on effect</li>
+        <li>Spherical Cellulose Powder — vegan, dry-touch, biodegradable</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">⭐</div><div class="hkv-text"><b>HK三件套最优组合：</b>氮化硼0.8%（干爽+哑光）+ 改性木薯淀粉1%（吸湿）+ PMSQ 0.5%（摩擦降低）。在30°C/80%RH模拟测试中，这个三件套使配方黏腻感评分从7.2/10降至2.1/10（WACKER触感仪）</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">氮化硼+改性木薯淀粉+PMSQ三件套组合的推荐比例和HK高湿度感官测试数据；氮化硼粒径规格（1-5μm精华用）；改性木薯淀粉在&gt;80%RH时的吸水饱和点；请提供热带气候感官测试套装样品。</div></div>
+    </div>
+    </div>
+
+    <!-- 2H55 Shin-Etsu KSG -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v6)">2H55</div><div class="bd">Hall 2 · H通道</div></div>
+      <div class="bm">
+        <div class="bname">Shin-Etsu Chemical</div><div class="bcn">信越化学（日本）⭐ 硅酮弹性体首选</div>
+        <div class="btags"><span class="vtag vt6">⑥ 感官★</span><span class="vtag vt4">④ 油脂</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">KSG-15（辛基十二醇基·精华专用）</span>
+        <span class="chip">KSG-16（环甲硅油基·乳霜适用）</span>
+        <span class="chip">KSG-18（苯基三甲基硅酮基·眼周光泽）</span>
+        <span class="chip">KSG-43（含活性成分释放型弹性体）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>KSG-15: Dimethicone/Dimethicone Crosspolymer (in Octyldodecanol) — serum</li>
+        <li>KSG-16: Dimethicone/Dimethicone Crosspolymer (in Cyclopentasiloxane) — cream</li>
+        <li>KSG-18: Dimethicone/Dimethicone Crosspolymer (in Phenyl Trimethicone) — eyes</li>
+        <li>KSG-43: with squalane — premium dry-touch for sensitive skin</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">⭐</div><div class="hkv-text"><b>HK必用成分：</b>KSG系列是"天鹅绒干爽感"的金标准；KSG-15用于精华1-2%（不含D5，无法规问题）；KSG-43（角鲨烷基）是最新无D5版本，同时满足欧盟D5限制；在80%RH下干爽感优于所有粉体类感官修饰剂</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">KSG-15 vs KSG-43在80%RH高湿度下的干爽感官测试对比；KSG-43（角鲨烷基，无D5）是否已在中国NMPA注册？推荐精华用量（1-2%）；与联合微粉2C27氮化硼协同使用的配方示例（感官叠加效果）。</div></div>
+    </div>
+    </div>
+
+    <!-- 2K43 TINCI -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v6)">2K43</div><div class="bd">Hall 2 · K通道</div></div>
+      <div class="bm">
+        <div class="bname">TINCI 天玑</div><div class="bcn">天玑（无硅感官方案专家）</div>
+        <div class="btags"><span class="vtag vt6">⑥ 感官★</span><span class="vtag vt5">⑤ 流变</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">有机硅弹性体替代品（无硅干爽感官）</span>
+        <span class="chip">自乳化聚合物体系（零油腻感）</span>
+        <span class="chip">干爽成膜聚合物</span>
+        <span class="chip">改性淀粉（吸湿抗黏腻）</span>
+      </div></div>
+      <div class="hkv"><div class="hkv-icon">🌿</div><div class="hkv-text"><b>无硅化趋势：</b>TINCI提供与KSG效果接近的无硅酮替代方案——适合"Clean Beauty无硅配方"诉求的HK市场；价格比信越KSG低约30-40%；是身体乳和沐浴露等大体积产品的最佳无硅感官方案</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">无硅弹性体替代品与信越KSG-15在30°C/80%RH下的感官盲测对比数据；用于精华（1-2%）和乳霜（2-3%）的推荐型号；自乳化聚合物在低油含量（8%）乳液中的应用配方示例。</div></div>
+    </div>
+    </div>
+
+    <!-- 7K11 Kobo/Caldic -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v6)">7K11</div><div class="bd">Hall 7 · K通道</div></div>
+      <div class="bm">
+        <div class="bname">Kobo / Caldic</div><div class="bcn">科博/卡尔迪克</div>
+        <div class="btags"><span class="vtag vt6">⑥ 感官</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H7</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">聚甲基硅倍半氧烷 Tospearl™（原版）</span>
+        <span class="chip">氮化硼（Kobo版本·全球主要供应商）</span>
+        <span class="chip">KSG硅酮弹性体粉末</span>
+      </div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">Kobo版氮化硼与联合微粉2C27的价格对比（哪家更便宜？）；Tospearl原版与PMSQ类似品的感官差异；样品索取（粒径2μm和5μm各一份）。</div></div>
+    </div>
+    </div>
+
+    <!-- 7C01 King Powder -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v6)">7C01</div><div class="bd">Hall 7 · C通道 底部</div></div>
+      <div class="bm">
+        <div class="bname">King Powder / Hongdu</div><div class="bcn">金粉/宏都（专业粉体供应商）</div>
+        <div class="btags"><span class="vtag vt6">⑥ 感官</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H7</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">各类球形粉体（感官修饰专用）</span>
+        <span class="chip">表面处理氮化硼</span>
+        <span class="chip">轻质矿物粉体系列</span>
+      </div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">有没有表面处理（硅烷处理）的氮化硼——表面处理版在乳液中分散性更好、不结团；球形粉体的粒径分布（D50应在2-5μm）和在高湿度下的吸水率测试。</div></div>
+    </div>
+    </div>
+
+    <!-- 2J20 MIYOSHI -->
+    <div class="bc open">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v6)">2J20</div><div class="bd">Hall 2 · J通道</div></div>
+      <div class="bm">
+        <div class="bname">BeautiChem / KALIN / MIYOSHI</div><div class="bcn">博美化学/卡林/三好（日本粉体权威）</div>
+        <div class="btags"><span class="vtag vt6">⑥ 感官★</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H2</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">MIYOSHI表面处理粉体（日本最高标准）</span>
+        <span class="chip">疏水化氮化硼（防水+干爽双效）</span>
+        <span class="chip">氨基酸涂层二氧化钛（温和防晒粉）</span>
+        <span class="chip">KALIN软焦距微球（视觉遮瑕+干爽）</span>
+      </div></div>
+      <div class="bs"><div class="blabel">EN INCI</div><ul class="enl">
+        <li>MIYOSHI surface-treated Boron Nitride — hydrophobised, prevents clumping</li>
+        <li>MIYOSHI treated TiO2 — amino acid-coated, minimal skin irritation</li>
+        <li>KALIN soft-focus microspheres — optical blur + dry feel</li>
+        <li>Multiple surface treatment options: silane, amino acid, fluorine</li>
+      </ul></div>
+      <div class="hkv"><div class="hkv-icon">⭐</div><div class="hkv-text"><b>日本粉体顶级水准：</b>MIYOSHI的表面处理技术是全球最先进的——疏水化氮化硼在乳液中分散均匀不结团，而且疏水表面在高湿度下吸水率接近零（普通氮化硼在80%RH下吸水率约0.1%）；KALIN软焦距微球同时解决视觉和触感两个问题</div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">MIYOSHI疏水化氮化硼vs普通氮化硼在80%RH下的吸水率对比；表面处理类型选哪种（硅烷vs氨基酸vs氟）最适合HK精华配方；KALIN软焦距微球的粒径和在乳霜中的推荐用量（0.3-0.8%）。</div></div>
+    </div>
+    </div>
+
+    <!-- 8F16 Eckart/BYK -->
+    <div class="bc">
+    <div class="bt" onclick="tog(this)">
+      <div class="bl"><div class="bn" style="color:var(--v6)">8F16</div><div class="bd">Hall 8 · F通道</div></div>
+      <div class="bm">
+        <div class="bname">Eckart / BYK</div><div class="bcn">埃卡特/毕克（德国效果颜料）</div>
+        <div class="btags"><span class="vtag vt6">⑥ 感官</span></div>
+      </div>
+      <div class="br"><span class="hall-pill">H8</span><span class="chev">▼</span></div>
+    </div>
+    <div class="bb">
+      <div class="bs"><div class="blabel">🇨🇳 中文成分名</div><div class="chips">
+        <span class="chip">氮化硼（埃卡特版·德国质量）</span>
+        <span class="chip">BYK感官聚合物修饰剂</span>
+        <span class="chip">珠光效果颜料（软焦距光学）</span>
+      </div></div>
+      <div class="ask"><div class="ask-t">💬 必问话术</div><div class="ask-txt">埃卡特氮化硼与日本MIYOSHI和中国联合微粉的价格和质量三角比较；BYK感官聚合物在乳液中的用量和触感数据；软焦距颜料在HK高湿度下不迁移不晕染的验证数据。</div></div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- FORMULA BLUEPRINTS            -->
+<!-- ═══════════════════════════════ -->
+<div class="formula-section" id="formulas">
+  <div class="formula-head">// 📐 HK CLIMATE FORMULA BLUEPRINTS · 香港气候配方蓝图</div>
+  <div style="font-size:12px;color:var(--text3);margin-bottom:12px">每个成分旁标注展位号 — 边逛边对照收集样品</div>
+
+  <!-- Formula 1: Face Serum -->
+  <div class="formula-card open">
+    <div class="fc-head" onclick="togF(this)">
+      <div class="fc-title">① 轻盈精华液 Light Face Serum</div>
+      <div class="fc-type">油相3.5% · 甘油&lt;1% · 触变指数&gt;5</div>
+      <span class="fc-chev">▼</span>
+    </div>
+    <div class="fc-body">
+      <div class="fc-row"><span class="fc-var fv5">⑤</span><div><div class="fc-ing">Carbopol® Ultrez 30 <span style="color:var(--text3);font-size:11px">→ 路博润 2F32</span></div><div class="fc-ing-cn">卡波姆Ultrez 30</div></div><span class="fc-pct">0.35%</span></div>
+      <div class="fc-row"><span class="fc-var fv3">③</span><div><div class="fc-ing">Betaine <span style="color:var(--text3);font-size:11px">→ 赢创 2K28</span></div><div class="fc-ing-cn">甜菜碱</div></div><span class="fc-pct">2.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv3">③</span><div><div class="fc-ing">1,3-Propanediol Zemea® <span style="color:var(--text3);font-size:11px">→ 罗盖特 8B21</span></div><div class="fc-ing-cn">1,3-丙二醇</div></div><span class="fc-pct">3.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv3">③</span><div><div class="fc-ing">Ectoin 0.5% <span style="color:var(--text3);font-size:11px">→ 赢创2K28 / bitop 2F60</span></div><div class="fc-ing-cn">依克多因</div></div><span class="fc-pct">0.5%</span></div>
+      <div class="fc-row"><span class="fc-var fv3">③</span><div><div class="fc-ing">Sodium Hyaluronate LMW + HMW <span style="color:var(--text3);font-size:11px">→ 弗兰德 2F02</span></div><div class="fc-ing-cn">透明质酸（低+高分子量）</div></div><span class="fc-pct">0.1%</span></div>
+      <div class="fc-row"><span class="fc-var fv1">①</span><div><div class="fc-ing">Squalane (fermentation) <span style="color:var(--text3);font-size:11px">→ Henry Lamotte 8H16</span></div><div class="fc-ing-cn">发酵角鲨烷</div></div><span class="fc-pct">1.5%</span></div>
+      <div class="fc-row"><span class="fc-var fv1">①</span><div><div class="fc-ing">Isoamyl Laurate <span style="color:var(--text3);font-size:11px">→ OilIO 8E15</span></div><div class="fc-ing-cn">月桂酸异戊酯</div></div><span class="fc-pct">1.5%</span></div>
+      <div class="fc-row"><span class="fc-var fv4">④</span><div><div class="fc-ing">Phenyl Trimethicone <span style="color:var(--text3);font-size:11px">→ 陶氏 2F40</span></div><div class="fc-ing-cn">苯基三甲基硅酮</div></div><span class="fc-pct">0.5%</span></div>
+      <div class="fc-row"><span class="fc-var fv6">⑥</span><div><div class="fc-ing">KSG-15 (Dimethicone Crosspolymer) <span style="color:var(--text3);font-size:11px">→ 信越 2H55</span></div><div class="fc-ing-cn">KSG硅酮弹性体</div></div><span class="fc-pct">1.5%</span></div>
+      <div class="fc-row"><span class="fc-var fv6">⑥</span><div><div class="fc-ing">Boron Nitride (1-5μm) <span style="color:var(--text3);font-size:11px">→ 联合微粉 2C27</span></div><div class="fc-ing-cn">氮化硼</div></div><span class="fc-pct">0.8%</span></div>
+      <div class="fc-row"><span class="fc-var fv6">⑥</span><div><div class="fc-ing">Modified Tapioca Starch <span style="color:var(--text3);font-size:11px">→ 联合微粉 2C27</span></div><div class="fc-ing-cn">改性木薯淀粉</div></div><span class="fc-pct">1.0%</span></div>
+      <div style="margin-top:10px;padding:8px 0;border-top:1px solid var(--border);font-size:12px;color:var(--text3)">Glycerin ≤0.5% · pH 5.5-6.0 · Viscosity 4,000-8,000 cP · 甘油极低，全靠甜菜碱+PDO+依克多因保湿</div>
+    </div>
+  </div>
+
+  <!-- Formula 2: HK Gel-Cream -->
+  <div class="formula-card">
+    <div class="fc-head" onclick="togF(this)">
+      <div class="fc-title">② 冻感凝霜 Gel-Cream (Aristoflex系统)</div>
+      <div class="fc-type">油相8% · 自乳化 · 冷加工</div>
+      <span class="fc-chev">▼</span>
+    </div>
+    <div class="fc-body">
+      <div class="fc-row"><span class="fc-var fv2">②</span><div><div class="fc-ing">Aristoflex® AVC <span style="color:var(--text3);font-size:11px">→ 亚什兰 2F36</span></div><div class="fc-ing-cn">Aristoflex AVC自乳化剂</div></div><span class="fc-pct">1.2%</span></div>
+      <div class="fc-row"><span class="fc-var fv3">③</span><div><div class="fc-ing">Betaine <span style="color:var(--text3);font-size:11px">→ 赢创 2K28</span></div><div class="fc-ing-cn">甜菜碱</div></div><span class="fc-pct">2.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv3">③</span><div><div class="fc-ing">1,3-Propanediol <span style="color:var(--text3);font-size:11px">→ 罗盖特 8B21</span></div><div class="fc-ing-cn">1,3-丙二醇</div></div><span class="fc-pct">3.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv3">③</span><div><div class="fc-ing">Trehalose <span style="color:var(--text3);font-size:11px">→ 弗兰德 2F02</span></div><div class="fc-ing-cn">海藻糖</div></div><span class="fc-pct">1.5%</span></div>
+      <div class="fc-row"><span class="fc-var fv1">①</span><div><div class="fc-ing">Coco-Caprylate/Caprate <span style="color:var(--text3);font-size:11px">→ OilIO 8E15</span></div><div class="fc-ing-cn">椰油酰辛癸酸甘油酯</div></div><span class="fc-pct">3.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv4">④</span><div><div class="fc-ing">Isohexadecane <span style="color:var(--text3);font-size:11px">→ 沙索 8F20</span></div><div class="fc-ing-cn">异十六烷</div></div><span class="fc-pct">2.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv4">④</span><div><div class="fc-ing">Squalane <span style="color:var(--text3);font-size:11px">→ Henry Lamotte 8H16</span></div><div class="fc-ing-cn">角鲨烷</div></div><span class="fc-pct">2.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv6">⑥</span><div><div class="fc-ing">TINCI silicone-free elastomer <span style="color:var(--text3);font-size:11px">→ TINCI 2K43</span></div><div class="fc-ing-cn">TINCI无硅弹性体</div></div><span class="fc-pct">2.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv6">⑥</span><div><div class="fc-ing">Boron Nitride + Modified Tapioca Starch <span style="color:var(--text3);font-size:11px">→ 联合微粉 2C27</span></div><div class="fc-ing-cn">氮化硼+改性木薯淀粉</div></div><span class="fc-pct">2.0%</span></div>
+      <div style="margin-top:10px;padding:8px 0;border-top:1px solid var(--border);font-size:12px;color:var(--text3)">Glycerin 0% · 冷加工 &lt;40°C · pH 5.5-6.5 (self-buffering) · 粘度 15,000-30,000 cP</div>
+    </div>
+  </div>
+
+  <!-- Formula 3: Body Lotion -->
+  <div class="formula-card">
+    <div class="fc-head" onclick="togF(this)">
+      <div class="fc-title">③ 身体乳 Body Lotion (HK Summer)</div>
+      <div class="fc-type">油相10% · 蜡酯乳化 · 大批量成本优化</div>
+      <span class="fc-chev">▼</span>
+    </div>
+    <div class="fc-body">
+      <div class="fc-row"><span class="fc-var fv2">②</span><div><div class="fc-ing">Emulium® Mellifera MB <span style="color:var(--text3);font-size:11px">→ 嘉法尔 2C01</span></div><div class="fc-ing-cn">蜜蜡蜡酯乳化剂</div></div><span class="fc-pct">3.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv1">①</span><div><div class="fc-ing">Coco-Caprylate + Isoamyl Laurate <span style="color:var(--text3);font-size:11px">→ Vehoki 6C10</span></div><div class="fc-ing-cn">椰油酰辛癸酸+月桂酸异戊酯</div></div><span class="fc-pct">5.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv4">④</span><div><div class="fc-ing">Caprylic/Capric Triglyceride <span style="color:var(--text3);font-size:11px">→ 嘉吉 2H60</span></div><div class="fc-ing-cn">辛癸酸甘油三酯（大批量）</div></div><span class="fc-pct">3.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv4">④</span><div><div class="fc-ing">Jojoba Esters <span style="color:var(--text3);font-size:11px">→ Jojoba Desert 2K02</span></div><div class="fc-ing-cn">霍霍巴酯</div></div><span class="fc-pct">2.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv3">③</span><div><div class="fc-ing">1,3-Propanediol + Betaine <span style="color:var(--text3);font-size:11px">→ 罗盖特8B21 + 赢创2K28</span></div><div class="fc-ing-cn">1,3-丙二醇+甜菜碱</div></div><span class="fc-pct">5.0%</span></div>
+      <div class="fc-row"><span class="fc-var fv5">⑤</span><div><div class="fc-ing">Carbopol® Aqua SF-1 <span style="color:var(--text3);font-size:11px">→ 路博润 2F32</span></div><div class="fc-ing-cn">卡波姆（无表活版）</div></div><span class="fc-pct">0.3%</span></div>
+      <div class="fc-row"><span class="fc-var fv6">⑥</span><div><div class="fc-ing">TINCI silicone-free + Boron Nitride <span style="color:var(--text3);font-size:11px">→ TINCI 2K43 + 联合微粉 2C27</span></div><div class="fc-ing-cn">无硅弹性体+氮化硼</div></div><span class="fc-pct">2.5%</span></div>
+      <div style="margin-top:10px;padding:8px 0;border-top:1px solid var(--border);font-size:12px;color:var(--text3)">Glycerin &lt;2% · 热带稳定（32°C/80%RH 6月）· 粘度 8,000-18,000 cP</div>
+    </div>
+  </div>
+</div>
+
+<!-- SYNERGY MAP -->
+<div class="synergy">
+  <div class="syn-title">// ⚡ 变量协同地图 6-Variable Synergy Map</div>
+  <div class="syn-row">
+    <div class="syn-vars"><span class="vtag vt2" style="font-size:10px">②</span><span style="color:var(--text3);font-size:11px;margin:0 4px">+</span><span class="vtag vt3" style="font-size:10px">③</span></div>
+    <div class="syn-text"><span class="syn-result">Aristoflex AVC + 1,3-PDO = </span>HK凝霜最轻质基础组合，无需高温乳化，冷加工可行</div>
+  </div>
+  <div class="syn-row">
+    <div class="syn-vars"><span class="vtag vt1" style="font-size:10px">①</span><span style="color:var(--text3);font-size:11px;margin:0 4px">+</span><span class="vtag vt6" style="font-size:10px">⑥</span></div>
+    <div class="syn-text"><span class="syn-result">月桂酸异戊酯 + KSG弹性体 = </span>快铺展+干爽收尾，精华油感降至最低</div>
+  </div>
+  <div class="syn-row">
+    <div class="syn-vars"><span class="vtag vt2" style="font-size:10px">②</span><span style="color:var(--text3);font-size:11px;margin:0 4px">+</span><span class="vtag vt4" style="font-size:10px">④</span></div>
+    <div class="syn-text"><span class="syn-result">Emulium® Mellifera + 角鲨烷 = </span>蜡酯乳化与零极性油相完全相容，热带稳定性最佳</div>
+  </div>
+  <div class="syn-row">
+    <div class="syn-vars"><span class="vtag vt5" style="font-size:10px">⑤</span><span style="color:var(--text3);font-size:11px;margin:0 4px">+</span><span class="vtag vt6" style="font-size:10px">⑥</span></div>
+    <div class="syn-text"><span class="syn-result">Carbopol Ultrez 30 + 氮化硼 = </span>强剪切稀化使弹性体和粉体均匀分散，避免粉体结团</div>
+  </div>
+  <div class="syn-row">
+    <div class="syn-vars"><span class="vtag vt3" style="font-size:10px">③</span><span style="color:var(--text3);font-size:11px;margin:0 4px">+</span><span class="vtag vt6" style="font-size:10px">⑥</span></div>
+    <div class="syn-text"><span class="syn-result">甜菜碱 + 改性淀粉 = </span>低吸湿保湿剂+主动吸水粉体，内外协同对抗高湿度黏腻</div>
+  </div>
+  <div class="syn-row">
+    <div class="syn-vars"><span class="vtag vt1" style="font-size:10px">①</span><span style="color:var(--text3);font-size:11px;margin:0 4px">×</span><span class="vtag vt3" style="font-size:10px">③</span></div>
+    <div class="syn-text"><span class="syn-result" style="color:#f87171">⚠️ 甘油&gt;3% + 任何油相 = </span>HK夏季必然黏腻——这是最常见的配方失误，优先级最高的需要避免</div>
+  </div>
+</div>
+
+<div class="foot">
+  HK Skin-Feel Guide · PCHi 2026 · Hangzhou<br>
+  6 Variables: ① Emollient 润肤剂 · ② Emulsifier 乳化剂 · ③ Humectant 保湿剂<br>
+  ④ Oil Phase 油脂相 · ⑤ Rheology 流变剂 · ⑥ Sensory Modifiers 感官修饰剂<br>
+  展位号已核对官方楼层图 · Booth numbers verified against official floor plans
+</div>
+
+<script>
+function tog(el){const c=el.closest('.bc');c.classList.toggle('open')}
+function togF(el){const c=el.closest('.formula-card');c.classList.toggle('open')}
+function hallOpen(id,o){document.getElementById(id).querySelectorAll('.bc').forEach(c=>{o?c.classList.add('open'):c.classList.remove('open')})}
+
+// Nav active on scroll
+const anchors=['v1','v2','v3','v4','v5','v6','formulas'];
+const pills=document.querySelectorAll('.nv');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  anchors.forEach(id=>{const el=document.getElementById(id);if(el&&scrollY>=el.offsetTop-130)cur=id});
+  pills.forEach(p=>{p.classList.toggle('active',p.getAttribute('href')==='#'+cur)});
+},{passive:true});
+</script>
+</body>
+</html>
